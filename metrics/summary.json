@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T15:07:11.115684+00:00",
+  "generated_at": "2026-06-17T17:33:16.899823+00:00",
   "totals": {
     "hunts": 10,
     "completed_hunts": 8,
@@ -833,10 +833,10 @@
         "ioc_count": 6,
         "ioc_types": [
           "package",
-          "regex",
-          "domain",
           "filename",
-          "unicode-range"
+          "regex",
+          "unicode-range",
+          "domain"
         ]
       },
       {
@@ -870,10 +870,10 @@
         ],
         "ioc_count": 6,
         "ioc_types": [
-          "ip",
-          "filename",
+          "sha256",
           "domain",
-          "sha256"
+          "filename",
+          "ip"
         ]
       },
       {
@@ -947,10 +947,10 @@
         ],
         "ioc_count": 6,
         "ioc_types": [
-          "ip",
-          "filename",
+          "sha256",
           "domain",
-          "sha256"
+          "filename",
+          "ip"
         ]
       },
       {
@@ -989,8 +989,8 @@
         ],
         "ioc_count": 8,
         "ioc_types": [
-          "package",
           "sha256",
+          "package",
           "ip"
         ]
       },
@@ -1026,9 +1026,9 @@
         ],
         "ioc_count": 6,
         "ioc_types": [
-          "ip",
           "domain",
-          "email"
+          "email",
+          "ip"
         ]
       },
       {
@@ -1066,10 +1066,10 @@
         ],
         "ioc_count": 6,
         "ioc_types": [
-          "ip",
-          "domain",
           "sha256",
-          "url"
+          "domain",
+          "url",
+          "ip"
         ]
       },
       {
@@ -1103,10 +1103,10 @@
         ],
         "ioc_count": 6,
         "ioc_types": [
-          "ip",
+          "sha256",
           "filename",
           "domain",
-          "sha256"
+          "ip"
         ]
       },
       {
@@ -1142,9 +1142,9 @@
         ],
         "ioc_count": 4,
         "ioc_types": [
-          "ip",
+          "sha256",
           "domain",
-          "sha256"
+          "ip"
         ]
       }
     ]
