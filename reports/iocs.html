@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERMUTE — IOC Export</title>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;--orange:#ffa657;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1rem;font-weight:600;white-space:nowrap}
+  header h1 span{color:var(--accent)}
+  .nav-link{font-size:.78rem;color:var(--text-muted);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px}
+  .nav-link:hover{color:var(--text);border-color:var(--accent)}
+  main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto}
+  section{margin-bottom:2rem}
+  section h2{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;position:relative;overflow:hidden}
+  .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kpi-color,var(--accent))}
+  .kpi-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+  .kpi-value{font-size:1.8rem;font-weight:700;line-height:1}
+  .kpi-sub{font-size:.7rem;color:var(--text-muted);margin-top:.3rem}
+  .export-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
+  .export-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;border:1px solid}
+  .btn-stix{background:rgba(88,166,255,.1);color:var(--accent);border-color:rgba(88,166,255,.3)}
+  .btn-misp{background:rgba(188,140,255,.1);color:var(--purple);border-color:rgba(188,140,255,.3)}
+  .btn-csv{background:rgba(63,185,80,.1);color:var(--green);border-color:rgba(63,185,80,.3)}
+  .filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+  .filter-row label{font-size:.75rem;color:var(--text-muted)}
+  .filter-row select,.filter-row input{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:.3rem .6rem;border-radius:6px;font-size:.78rem}
+  .filter-row input{width:220px}
+  table{width:100%;border-collapse:collapse;font-size:.78rem}
+  th{font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:.6rem .75rem;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}
+  td{padding:.55rem .75rem;border-bottom:1px solid var(--surface2);vertical-align:top}
+  tr:hover td{background:var(--surface)}
+  .mono{font-family:'SF Mono','Consolas',monospace;font-size:.72rem}
+  .ioc-val{word-break:break-all;color:var(--text);font-family:monospace;font-size:.75rem}
+  .tlp{font-size:.62rem;padding:.15rem .45rem;border-radius:3px;font-weight:600;white-space:nowrap}
+  .tlp-AMBER{background:rgba(210,153,34,.18);color:var(--yellow)}
+  .tlp-WHITE{background:var(--surface2);color:var(--text-muted)}
+  .tlp-GREEN{background:rgba(63,185,80,.12);color:var(--green)}
+  .tlp-RED{background:rgba(248,81,73,.15);color:var(--red)}
+  .type-badge{font-size:.65rem;padding:.15rem .45rem;border-radius:4px;font-family:monospace;font-weight:600;white-space:nowrap}
+  .type-ip{background:rgba(248,81,73,.12);color:var(--red)}
+  .type-domain{background:rgba(88,166,255,.12);color:var(--accent)}
+  .type-url{background:rgba(88,166,255,.08);color:var(--accent)}
+  .type-sha256,.type-md5,.type-sha1{background:rgba(63,185,80,.1);color:var(--green)}
+  .type-filename{background:rgba(210,153,34,.12);color:var(--yellow)}
+  .type-email{background:rgba(188,140,255,.1);color:var(--purple)}
+  .type-package{background:rgba(255,166,87,.1);color:var(--orange)}
+  .type-regex,.type-unicode-range{background:var(--surface2);color:var(--text-muted)}
+  #count-label{font-size:.75rem;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>WINTERMUTE</span> / IOC Export</h1>
+  <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="queue.html" class="nav-link">Hunt Queue</a>
+    <a href="actors.html" class="nav-link">APT Tracker</a>
+    <a href="iocs.html" class="nav-link" style="color:var(--text);border-color:var(--accent)">IOCs</a>
+  </nav>
+</header>
+<main>
+  <div class="kpi-grid" id="kpi-grid"></div>
+
+  <section>
+    <h2>Export formats</h2>
+    <div class="export-row">
+      <a href="../exports/stix-bundle.json" class="export-btn btn-stix" download>↓ STIX 2.1 Bundle</a>
+      <a href="../exports/misp-export.json" class="export-btn btn-misp" download>↓ MISP Event JSON</a>
+      <a href="../exports/iocs.csv" class="export-btn btn-csv" download>↓ IOCs CSV</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>IOC viewer</h2>
+    <div class="filter-row">
+      <label>Type:</label>
+      <select id="type-filter" onchange="applyFilters()">
+        <option value="">All types</option>
+        <option>ip</option><option>domain</option><option>url</option>
+        <option>sha256</option><option>md5</option><option>sha1</option>
+        <option>filename</option><option>email</option><option>package</option>
+        <option>regex</option>
+      </select>
+      <label>TLP:</label>
+      <select id="tlp-filter" onchange="applyFilters()">
+        <option value="">All TLP</option>
+        <option>AMBER</option><option>WHITE</option><option>GREEN</option><option>RED</option>
+      </select>
+      <label>Report:</label>
+      <select id="report-filter" onchange="applyFilters()">
+        <option value="">All reports</option>
+      </select>
+      <input type="text" id="search" placeholder="Search value or context…" oninput="applyFilters()">
+      <span id="count-label"></span>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr>
+          <th>Type</th><th>Value</th><th>Context</th><th>Report</th><th>Actor</th><th>TLP</th><th>Expires</th>
+        </tr></thead>
+        <tbody id="ioc-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+let ALL_ROWS = [];
+
+function parseCSV(text){
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split(',');
+  return lines.slice(1).map(line=>{
+    const vals=[];let cur='',inQ=false;
+    for(let i=0;i<line.length;i++){
+      if(line[i]==='"'){inQ=!inQ}
+      else if(line[i]===','&&!inQ){vals.push(cur);cur=''}
+      else cur+=line[i];
+    }
+    vals.push(cur);
+    return Object.fromEntries(headers.map((h,i)=>[h,vals[i]||'']));
+  });
+}
+
+function renderRow(r){
+  const tc = 'type-'+(r.ioc_type||'').replace('-','');
+  return `<tr>
+    <td><span class="type-badge ${tc}">${r.ioc_type}</span></td>
+    <td class="ioc-val">${r.ioc_value}</td>
+    <td style="color:var(--text-muted);max-width:260px;font-size:.72rem">${r.context}</td>
+    <td><a href="queue.html" style="color:var(--accent);font-size:.72rem;text-decoration:none">${r.report_id}</a></td>
+    <td style="font-size:.72rem;color:var(--text-muted)">${r.threat_actors||''}</td>
+    <td><span class="tlp tlp-${r.tlp}">${r.tlp}</span></td>
+    <td style="font-size:.72rem;color:var(--text-muted)">${r.expires||'—'}</td>
+  </tr>`;
+}
+
+function applyFilters(){
+  const type=document.getElementById('type-filter').value;
+  const tlp=document.getElementById('tlp-filter').value;
+  const rep=document.getElementById('report-filter').value;
+  const q=document.getElementById('search').value.toLowerCase();
+  const filtered=ALL_ROWS.filter(r=>
+    (!type||r.ioc_type===type)&&
+    (!tlp||r.tlp===tlp)&&
+    (!rep||r.report_id===rep)&&
+    (!q||r.ioc_value.toLowerCase().includes(q)||r.context.toLowerCase().includes(q))
+  );
+  document.getElementById('ioc-body').innerHTML=filtered.map(renderRow).join('');
+  document.getElementById('count-label').textContent=`${filtered.length} of ${ALL_ROWS.length} IOCs`;
+}
+
+// Load KPIs from summary.json
+fetch('../metrics/summary.json').then(r=>r.json()).then(data=>{
+  const t=data.intel?.totals||{};
+  document.getElementById('kpi-grid').innerHTML=[
+    {label:'Total IOCs',val:t.total_iocs||0,sub:'all reports',c:'var(--accent)'},
+    {label:'Reports',val:t.reports||0,sub:'intel reports',c:'var(--purple)'},
+    {label:'Actors tracked',val:t.actors_tracked||0,sub:'unique actors',c:'var(--orange)'},
+    {label:'STIX indicators',val:t.total_iocs||0,sub:'in bundle',c:'var(--accent)'},
+    {label:'TTP gap',val:t.ttp_gap_count||0,sub:'unhunted techniques',c:'var(--red)'},
+    {label:'Tools catalogued',val:t.tools_identified||0,sub:'adversary tools',c:'var(--green)'},
+  ].map(k=>`<div class="kpi" style="--kpi-color:${k.c}"><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.val}</div><div class="kpi-sub">${k.sub}</div></div>`).join('');
+}).catch(()=>{});
+
+// Load IOCs from CSV
+fetch('../exports/iocs.csv').then(r=>r.text()).then(text=>{
+  ALL_ROWS=parseCSV(text);
+  const reports=[...new Set(ALL_ROWS.map(r=>r.report_id))].sort();
+  const sel=document.getElementById('report-filter');
+  reports.forEach(id=>{const o=document.createElement('option');o.value=id;o.textContent=id;sel.appendChild(o);});
+  applyFilters();
+}).catch(()=>{
+  document.getElementById('ioc-body').innerHTML='<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted)">Could not load exports/iocs.csv — run export_iocs.py first.</td></tr>';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERMUTE — APT Tracker</title>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;--orange:#ffa657;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1rem;font-weight:600;white-space:nowrap}
+  header h1 span{color:var(--accent)}
+  .nav-link{font-size:.78rem;color:var(--text-muted);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px}
+  .nav-link:hover{color:var(--text);border-color:var(--accent)}
+  main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto}
+
+  /* KPI row */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.85rem;margin-bottom:2rem}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.9rem 1.1rem;position:relative;overflow:hidden}
+  .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kpi-color,var(--accent))}
+  .kpi-label{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+  .kpi-value{font-size:1.7rem;font-weight:700;line-height:1}
+  .kpi-sub{font-size:.67rem;color:var(--text-muted);margin-top:.25rem}
+
+  section{margin-bottom:2rem}
+  .section-header{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.85rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+  /* Actor table */
+  .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem}
+  .table-toolbar{padding:.75rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;background:var(--surface2)}
+  .table-toolbar input{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.3rem .7rem;border-radius:6px;font-size:.78rem;width:200px}
+  .filter-btns{display:flex;gap:.3rem;flex-wrap:wrap}
+  .filter-btn{font-size:.7rem;padding:.25rem .6rem;border-radius:4px;border:1px solid var(--border);background:none;color:var(--text-muted);cursor:pointer}
+  .filter-btn.active{background:rgba(88,166,255,.1);color:var(--accent);border-color:rgba(88,166,255,.3)}
+  .sort-hint{font-size:.68rem;color:var(--text-muted);margin-left:auto}
+  table{width:100%;border-collapse:collapse;font-size:.78rem}
+  thead th{font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:.55rem .9rem;border-bottom:1px solid var(--border);text-align:left;background:var(--surface2);white-space:nowrap;cursor:pointer;user-select:none}
+  thead th:hover{color:var(--text)}
+  thead th .sort-arrow{opacity:.4;margin-left:.3rem}
+  thead th.sorted .sort-arrow{opacity:1;color:var(--accent)}
+  tbody td{padding:.55rem .9rem;border-bottom:1px solid var(--surface2);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr{cursor:pointer;transition:background .1s}
+  tbody tr:hover td{background:var(--surface2)}
+  tbody tr.highlighted td{background:rgba(88,166,255,.07);border-left:2px solid var(--accent)}
+  .cov-bar-wrap{width:80px;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-right:.4rem}
+  .cov-bar-fill{height:100%;border-radius:3px;background:var(--green)}
+  .cov-bar-fill.low{background:var(--red)}
+  .cov-bar-fill.mid{background:var(--yellow)}
+
+  /* Actor type badges */
+  .type-badge{font-size:.62rem;padding:.15rem .45rem;border-radius:4px;font-weight:600;white-space:nowrap}
+  .type-nation{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid rgba(188,140,255,.25)}
+  .type-crime{background:rgba(248,81,73,.12);color:var(--red);border:1px solid rgba(248,81,73,.2)}
+  .type-insider{background:rgba(210,153,34,.12);color:var(--yellow);border:1px solid rgba(210,153,34,.2)}
+  .type-raas{background:rgba(255,166,87,.12);color:var(--orange);border:1px solid rgba(255,166,87,.2)}
+  .type-unknown{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border)}
+
+  /* Actor cards */
+  .actor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.1rem}
+  .actor-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;scroll-margin-top:80px;transition:border-color .2s}
+  .actor-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .actor-card-header{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+  .actor-name{font-size:.95rem;font-weight:600;margin-bottom:.15rem}
+  .actor-meta-line{font-size:.7rem;color:var(--text-muted)}
+  .actor-card-body{padding:.9rem 1.1rem}
+  .stat-row{display:flex;gap:1.1rem;margin-bottom:.85rem;flex-wrap:wrap}
+  .stat-item{display:flex;flex-direction:column;gap:.1rem}
+  .stat-val{font-size:1.3rem;font-weight:700;line-height:1}
+  .stat-lbl{font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em}
+  .sub-label{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:.75rem 0 .35rem}
+  .chip-row{display:flex;flex-wrap:wrap;gap:.25rem}
+  .chip{font-size:.68rem;padding:.15rem .4rem;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);font-family:monospace;text-decoration:none;display:inline-block}
+  .chip.covered{border-color:rgba(63,185,80,.4);color:var(--green);background:rgba(63,185,80,.07)}
+  .chip.gap{border-color:rgba(248,81,73,.35);color:var(--red);background:rgba(248,81,73,.06)}
+  .chip.tool{color:var(--text)}
+  .chip.ioc-type{border-color:var(--border);color:var(--text-muted)}
+  #empty-state{display:none;text-align:center;padding:3rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>WINTERMUTE</span> / APT Tracker</h1>
+  <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="queue.html" class="nav-link">Hunt Queue</a>
+    <a href="actors.html" class="nav-link" style="color:var(--text);border-color:var(--accent)">APT Tracker</a>
+    <a href="iocs.html" class="nav-link">IOCs</a>
+  </nav>
+</header>
+
+<main>
+  <!-- KPIs -->
+  <div class="kpi-grid" id="kpi-grid"></div>
+
+  <!-- Actor roster table -->
+  <section>
+    <div class="section-header">
+      <span>Actor Roster</span>
+      <span id="actor-count" style="font-size:.72rem;color:var(--text-muted);font-weight:400;text-transform:none;letter-spacing:0"></span>
+    </div>
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <input type="text" id="search" placeholder="Search actors…" oninput="applyFilters()">
+        <div class="filter-btns" id="type-filters">
+          <button class="filter-btn active" data-type="all" onclick="setTypeFilter('all')">All</button>
+          <button class="filter-btn" data-type="cybercriminal" onclick="setTypeFilter('cybercriminal')">Cybercriminal</button>
+          <button class="filter-btn" data-type="nation-state" onclick="setTypeFilter('nation-state')">Nation-State</button>
+          <button class="filter-btn" data-type="insider" onclick="setTypeFilter('insider')">Insider</button>
+          <button class="filter-btn" data-type="ransomware" onclick="setTypeFilter('ransomware')">Ransomware</button>
+        </div>
+        <span class="sort-hint">Click column to sort · Click row to view card</span>
+      </div>
+      <table id="actor-table">
+        <thead>
+          <tr>
+            <th onclick="sortBy('name')" id="th-name">Actor <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('type')" id="th-type">Type <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('hunts')" id="th-hunts">Hunts <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('techniques')" id="th-techniques">Techniques <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('coverage')" id="th-coverage">Coverage <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('gap')" id="th-gap">Gap <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('detections')" id="th-detections">Detections <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('iocs')" id="th-iocs">IOCs <span class="sort-arrow">↕</span></th>
+            <th onclick="sortBy('reports')" id="th-reports">Reports <span class="sort-arrow">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="actor-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Actor detail cards -->
+  <section>
+    <div class="section-header">
+      <span>Adversary Profiles</span>
+      <span style="font-size:.72rem;color:var(--text-muted);font-weight:400;text-transform:none;letter-spacing:0">
+        <span style="color:var(--green)">■</span> hunted &nbsp;
+        <span style="color:var(--red)">■</span> gap
+      </span>
+    </div>
+    <div id="empty-state">No actors match the current filter.</div>
+    <div class="actor-grid" id="actor-grid"></div>
+  </section>
+</main>
+
+<script>
+var ALL_ACTORS = [];
+var COVERED_TECHNIQUES = new Set();
+var currentSort = {col: 'techniques', dir: -1};
+var currentType = 'all';
+
+var TYPE_BADGE = {
+  'cybercriminal': 'type-crime',
+  'nation-state': 'type-nation',
+  'insider': 'type-insider',
+  'raas': 'type-raas',
+  'ransomware-as-a-service': 'type-raas',
+  'insider threat': 'type-insider'
+};
+
+function typeBadge(t) {
+  var key = (t||'').toLowerCase();
+  var cls = TYPE_BADGE[key] || 'type-unknown';
+  return '<span class="type-badge ' + cls + '">' + (t || 'unknown') + '</span>';
+}
+
+function covColor(pct) {
+  if (pct >= 70) return 'fill';
+  if (pct >= 40) return 'mid';
+  return 'low';
+}
+
+function setTypeFilter(type) {
+  currentType = type;
+  document.querySelectorAll('.filter-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.type === type);
+  });
+  applyFilters();
+}
+
+function sortBy(col) {
+  if (currentSort.col === col) {
+    currentSort.dir *= -1;
+  } else {
+    currentSort.col = col;
+    currentSort.dir = -1;
+  }
+  document.querySelectorAll('thead th').forEach(function(th){ th.classList.remove('sorted'); });
+  var th = document.getElementById('th-' + col);
+  if (th) th.classList.add('sorted');
+  applyFilters();
+}
+
+function applyFilters() {
+  var q = document.getElementById('search').value.toLowerCase();
+  var filtered = ALL_ACTORS.filter(function(a){
+    var matchType = currentType === 'all' || (a.type||'').toLowerCase().includes(currentType);
+    var matchQ = !q || a.name.toLowerCase().includes(q) || (a.type||'').toLowerCase().includes(q);
+    return matchType && matchQ;
+  });
+
+  // Sort
+  var col = currentSort.col;
+  var dir = currentSort.dir;
+  filtered.sort(function(a, b){
+    var va, vb;
+    if (col === 'name') { va = a.name; vb = b.name; return dir * va.localeCompare(vb); }
+    if (col === 'type') { va = a.type||''; vb = b.type||''; return dir * va.localeCompare(vb); }
+    if (col === 'hunts') { va = a.huntCount; vb = b.huntCount; }
+    else if (col === 'techniques') { va = a.techCount; vb = b.techCount; }
+    else if (col === 'coverage') { va = a.covered; vb = b.covered; }
+    else if (col === 'gap') { va = a.gap; vb = b.gap; }
+    else if (col === 'detections') { va = a.detections; vb = b.detections; }
+    else if (col === 'iocs') { va = a.iocCount; vb = b.iocCount; }
+    else if (col === 'reports') { va = a.reportCount; vb = b.reportCount; }
+    else { va = 0; vb = 0; }
+    return dir * (va - vb);
+  });
+
+  renderTable(filtered);
+  renderCards(filtered);
+
+  document.getElementById('actor-count').textContent =
+    filtered.length + ' of ' + ALL_ACTORS.length + ' actors';
+  document.getElementById('empty-state').style.display = filtered.length ? 'none' : 'block';
+  document.getElementById('actor-grid').style.display = filtered.length ? '' : 'none';
+}
+
+function scrollToCard(name) {
+  var id = 'card-' + name.replace(/[^a-z0-9]/gi, '-');
+  var el = document.getElementById(id);
+  if (!el) return;
+  // Remove previous highlight
+  document.querySelectorAll('.actor-card.highlight').forEach(function(c){ c.classList.remove('highlight'); });
+  // Highlight and scroll
+  el.classList.add('highlight');
+  el.scrollIntoView({behavior: 'smooth', block: 'start'});
+  setTimeout(function(){ el.classList.remove('highlight'); }, 2000);
+  // Highlight table row
+  document.querySelectorAll('tbody tr.highlighted').forEach(function(r){ r.classList.remove('highlighted'); });
+  var row = document.getElementById('row-' + id);
+  if (row) row.classList.add('highlighted');
+}
+
+function renderTable(actors) {
+  var tbody = document.getElementById('actor-tbody');
+  if (!actors.length) { tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:1.5rem;color:var(--text-muted)">No actors match.</td></tr>'; return; }
+  tbody.innerHTML = actors.map(function(a){
+    var pct = a.techCount ? Math.round(a.covered / a.techCount * 100) : 0;
+    var barCls = covColor(pct);
+    var cardId = 'card-' + a.name.replace(/[^a-z0-9]/gi, '-');
+    var reportLinks = a.reportIds.map(function(id){
+      return '<a href="intel.html?id=' + id + '" style="color:var(--accent);font-size:.68rem;text-decoration:none;margin-right:.25rem" onclick="event.stopPropagation()">' + id + '</a>';
+    }).join('');
+    return '<tr id="row-' + cardId + '" onclick="scrollToCard(\'' + a.name.replace(/'/g, "\\'") + '\')">' +
+      '<td><strong style="font-size:.8rem">' + a.name + '</strong></td>' +
+      '<td>' + typeBadge(a.type) + '</td>' +
+      '<td style="text-align:center;font-weight:600;color:' + (a.huntCount > 0 ? 'var(--green)' : 'var(--red)') + '">' + a.huntCount + '</td>' +
+      '<td style="text-align:center">' + a.techCount + '</td>' +
+      '<td><span class="cov-bar-wrap"><span class="cov-bar-fill ' + barCls + '" style="width:' + pct + '%"></span></span>' + a.covered + '/' + a.techCount + '</td>' +
+      '<td style="text-align:center;color:' + (a.gap > 0 ? 'var(--red)' : 'var(--green)') + ';font-weight:600">' + a.gap + '</td>' +
+      '<td style="text-align:center;color:' + (a.detections > 0 ? 'var(--green)' : 'var(--text-muted)') + ';font-weight:600">' + a.detections + '</td>' +
+      '<td style="text-align:center;color:var(--orange)">' + a.iocCount + '</td>' +
+      '<td style="font-size:.7rem">' + (reportLinks || '—') + '</td>' +
+    '</tr>';
+  }).join('');
+}
+
+function renderCards(actors) {
+  var grid = document.getElementById('actor-grid');
+  grid.innerHTML = actors.map(function(a){
+    var cardId = 'card-' + a.name.replace(/[^a-z0-9]/gi, '-');
+    var techChips = a.techniques.slice(0, 14).map(function(t){
+      var cls = COVERED_TECHNIQUES.has(t) ? 'covered' : 'gap';
+      var url = 'https://attack.mitre.org/techniques/' + t.replace('.', '/');
+      return '<a href="' + url + '" target="_blank" class="chip ' + cls + '" title="' + (cls === 'covered' ? 'Hunted' : 'No hunt') + '">' + t + '</a>';
+    }).join('');
+    var moreT = a.techniques.length > 14 ? '<span class="chip" style="color:var(--text-muted)">+' + (a.techniques.length - 14) + '</span>' : '';
+    var toolChips = a.tools.slice(0, 8).map(function(t){
+      return '<span class="chip tool">' + t + '</span>';
+    }).join('');
+    var moreTools = a.tools.length > 8 ? '<span class="chip" style="color:var(--text-muted)">+' + (a.tools.length - 8) + '</span>' : '';
+    var iocChips = a.iocTypes.map(function(t){ return '<span class="chip ioc-type">' + t + '</span>'; }).join('');
+    var reportLinks = a.reportIds.map(function(id){
+      return '<a href="intel.html?id=' + id + '" style="color:var(--accent);font-size:.72rem;text-decoration:none;margin-right:.35rem">' + id + '</a>';
+    }).join('');
+    var pct = a.techCount ? Math.round(a.covered / a.techCount * 100) : 0;
+
+    return '<div class="actor-card" id="' + cardId + '">' +
+      '<div class="actor-card-header">' +
+        '<div>' +
+          '<div class="actor-name">' + a.name + '</div>' +
+          '<div class="actor-meta-line">' + (a.type || 'Unknown type') + ' · ' + a.reportCount + ' report' + (a.reportCount !== 1 ? 's' : '') + ' · ' + (reportLinks || '—') + '</div>' +
+        '</div>' +
+        typeBadge(a.type) +
+      '</div>' +
+      '<div class="actor-card-body">' +
+        '<div class="stat-row">' +
+          '<div class="stat-item"><div class="stat-val" style="color:' + (a.huntCount > 0 ? 'var(--green)' : 'var(--red)') + '">' + a.huntCount + '</div><div class="stat-lbl">Hunts</div></div>' +
+          '<div class="stat-item"><div class="stat-val" style="color:var(--accent)">' + a.techCount + '</div><div class="stat-lbl">Techniques</div></div>' +
+          '<div class="stat-item"><div class="stat-val" style="color:var(--green)">' + a.covered + '</div><div class="stat-lbl">Covered</div></div>' +
+          '<div class="stat-item"><div class="stat-val" style="color:' + (a.gap > 0 ? 'var(--red)' : 'var(--green)') + '">' + a.gap + '</div><div class="stat-lbl">Gap</div></div>' +
+          '<div class="stat-item"><div class="stat-val" style="color:var(--orange)">' + a.iocCount + '</div><div class="stat-lbl">IOCs</div></div>' +
+          '<div class="stat-item"><div class="stat-val" style="color:' + (a.detections > 0 ? 'var(--green)' : 'var(--text-muted)') + '">' + a.detections + '</div><div class="stat-lbl">Detections</div></div>' +
+        '</div>' +
+        '<div class="cov-bar-wrap" style="width:100%;height:5px;margin-bottom:.75rem">' +
+          '<div class="cov-bar-fill" style="width:' + pct + '%;background:' + (pct >= 70 ? 'var(--green)' : pct >= 40 ? 'var(--yellow)' : 'var(--red)') + '"></div>' +
+        '</div>' +
+        (a.techniques.length ? '<div class="sub-label">ATT&amp;CK techniques</div><div class="chip-row" style="margin-bottom:.75rem">' + techChips + moreT + '</div>' : '') +
+        (a.tools.length ? '<div class="sub-label">Tools</div><div class="chip-row" style="margin-bottom:.75rem">' + toolChips + moreTools + '</div>' : '') +
+        (a.iocTypes.length ? '<div class="sub-label">IOC types · <a href="iocs.html" style="color:var(--accent);font-size:.68rem;text-decoration:none">view all →</a></div><div class="chip-row">' + iocChips + '</div>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+fetch('../metrics/summary.json')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    // Build covered techniques set
+    Object.keys(data.technique_coverage || {}).forEach(function(t){ COVERED_TECHNIQUES.add(t); });
+
+    var intel = data.intel || {};
+    var reports = intel.reports || [];
+    var huntActors = data.threat_actors || {};
+    var totals = intel.totals || {};
+
+    // KPIs
+    document.getElementById('kpi-grid').innerHTML = [
+      {label:'Actors tracked', val:totals.actors_tracked||0, sub:'unique actors', c:'var(--accent)'},
+      {label:'Techniques identified', val:totals.techniques_identified||0, sub:'across all reports', c:'var(--purple)'},
+      {label:'Tools catalogued', val:totals.tools_identified||0, sub:'adversary tooling', c:'var(--orange)'},
+      {label:'Total IOCs', val:totals.total_iocs||0, sub:'STIX · MISP · CSV', c:'var(--green)'},
+      {label:'TTP gap', val:totals.ttp_gap_count||0, sub:'unhunted techniques', c:'var(--red)'},
+      {label:'Reports → hunts', val:(totals.converted_to_hunt||0) + ' / ' + (totals.reports||0), sub:totals.report_to_hunt_rate+'% conversion', c:'var(--green)'},
+    ].map(function(k){
+      return '<div class="kpi" style="--kpi-color:' + k.c + '"><div class="kpi-label">' + k.label + '</div><div class="kpi-value">' + k.val + '</div><div class="kpi-sub">' + k.sub + '</div></div>';
+    }).join('');
+
+    // Build actor map from reports
+    var actorMap = {};
+    reports.forEach(function(r){
+      (r.threat_actors||[]).forEach(function(aname){
+        if (!actorMap[aname]) actorMap[aname] = {reports:[], techniques:new Set(), tools:new Set(), iocCount:0, iocTypes:new Set(), type:''};
+        actorMap[aname].reports.push(r);
+        (r.techniques||[]).forEach(function(t){ actorMap[aname].techniques.add(t); });
+        (r.tools||[]).forEach(function(t){ actorMap[aname].tools.add(t); });
+        actorMap[aname].iocCount += r.ioc_count || 0;
+        (r.ioc_types||[]).forEach(function(t){ actorMap[aname].iocTypes.add(t); });
+        // Get type from first report that has it as object
+        if (!actorMap[aname].type) {
+          // We don't have type in summary.json actor list, derive from hunt actors
+        }
+      });
+    });
+
+    // Merge hunt actor data
+    Object.entries(huntActors).forEach(function(entry){
+      var name = entry[0], hinfo = entry[1];
+      if (!actorMap[name]) actorMap[name] = {reports:[], techniques:new Set(), tools:new Set(), iocCount:0, iocTypes:new Set(), type:''};
+      (hinfo.techniques||[]).forEach(function(t){ actorMap[name].techniques.add(t); });
+    });
+
+    // Build flat actor list
+    ALL_ACTORS = Object.entries(actorMap).map(function(entry){
+      var name = entry[0], d = entry[1];
+      var techs = Array.from(d.techniques);
+      var covered = techs.filter(function(t){ return COVERED_TECHNIQUES.has(t); }).length;
+      var gap = techs.length - covered;
+      var hdata = huntActors[name] || {};
+      // Derive type from name heuristics + report data
+      var type = '';
+      if (name.toLowerCase().includes('insider')) type = 'insider';
+      else if (['lockbit','akira','blackcat','alphv','scattered spider','fin7'].some(function(k){ return name.toLowerCase().includes(k); })) type = 'cybercriminal';
+      else if (['volt typhoon','glassworm'].some(function(k){ return name.toLowerCase().includes(k); })) type = 'nation-state';
+      return {
+        name: name,
+        type: type,
+        huntCount: (hdata.hunts||[]).length,
+        detections: hdata.detections || 0,
+        techCount: techs.length,
+        techniques: techs.sort(),
+        covered: covered,
+        gap: gap,
+        tools: Array.from(d.tools),
+        iocCount: d.iocCount,
+        iocTypes: Array.from(d.iocTypes),
+        reportCount: d.reports.length,
+        reportIds: d.reports.map(function(r){ return r.id; }),
+      };
+    });
+
+    applyFilters();
+  })
+  .catch(function(e){
+    document.querySelector('main').innerHTML = '<div style="padding:2rem;color:var(--red);background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-top:2rem"><strong>Error:</strong> ' + e.message + '</div>';
+  });
+</script>
+</body>
+</html>

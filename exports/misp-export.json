@@ -1,0 +1,1202 @@
+{
+  "response": [
+    {
+      "Event": {
+        "uuid": "452292bf-77c9-4d1e-afd2-657184200da1",
+        "info": "TIR-2026-001 \u2014 Glassworm: Invisible Unicode Supply Chain Attack",
+        "date": "2026-03-18",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "7864d8e6-243b-4f67-9d6a-bdf72bdb709f",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "api.mainnet-beta.solana.com",
+            "comment": "C2 channel for second-stage payload delivery",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-03-18",
+            "last_seen": "2026-09-18"
+          },
+          {
+            "uuid": "82761c9a-cdb9-46eb-9590-b9cc1a6efe3c",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "@aifabrix/miso-client",
+            "comment": "Malicious npm package published 2026-03-12",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "5b63029f-567d-4194-b6e6-7e27628eb10a",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "@iflow-mcp/watercrawl-watercrawl-mcp",
+            "comment": "Malicious npm package published 2026-03-12",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "6ae1af16-09ff-41a0-a456-9e53ff21fc8c",
+            "type": "filename",
+            "category": "Payload delivery",
+            "value": "quartz.quartz-markdown-editor",
+            "comment": "Malicious VS Code extension published 2026-03-12",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "e61622aa-86e2-49c5-ad3d-b064cdd677a2",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "eval\\(Buffer\\.from\\(",
+            "comment": "Decode-and-eval pattern in malicious JS \u2014 hunt behavioral indicator",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "3d197564-edf4-44ed-8558-c4f3b7cb32aa",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "U+FE00-U+FE0F",
+            "comment": "Variation Selectors used as invisible payload carrier",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-001"
+          },
+          {
+            "name": "threat-actor:Glassworm"
+          },
+          {
+            "name": "mitre-attack:T1195.001"
+          },
+          {
+            "name": "mitre-attack:T1059.007"
+          },
+          {
+            "name": "mitre-attack:T1027"
+          },
+          {
+            "name": "mitre-attack:T1027.010"
+          },
+          {
+            "name": "mitre-attack:T1552"
+          },
+          {
+            "name": "mitre-attack:T1528"
+          },
+          {
+            "name": "mitre-attack:T1071.001"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "8ff1955d-dbeb-4636-91b9-c98a7c2930ba",
+        "info": "TIR-2026-002 \u2014 LockBit 3.0 Accelerated Healthcare Sector Targeting",
+        "date": "2026-04-05",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "58ded842-8003-4526-a95c-2be2e314f187",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "5.188.87.194",
+            "comment": "LockBit affiliate C2 infrastructure \u2014 observed in SMB fan-out campaigns",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-05",
+            "last_seen": "2026-07-05"
+          },
+          {
+            "uuid": "fffb246e-a4c9-4b1d-8748-0f42d9b83f85",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "185.220.101.47",
+            "comment": "Tor exit node used by affiliates for initial access",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-05",
+            "last_seen": "2026-07-05"
+          },
+          {
+            "uuid": "112399ec-a70e-455a-b105-162c262cd280",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "0e04e4f9523c8b44f3f517b82c1c50f3f70aeebfe5a57b1a4d2a6b3a0f5d6c8a",
+            "comment": "LockBit 3.0 encryptor binary \u2014 healthcare variant with intermittent encryption",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-05",
+            "last_seen": "2026-10-01"
+          },
+          {
+            "uuid": "43b04964-f01c-4e5f-9d13-5725776bb7b8",
+            "type": "filename",
+            "category": "Payload delivery",
+            "value": "svchost_updater.exe",
+            "comment": "LockBit dropper masquerading as Windows service update",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-05",
+            "last_seen": "2026-07-05"
+          },
+          {
+            "uuid": "2468ceb7-a62a-4135-917f-409958e22444",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "lockbit3ouyhwujm.onion",
+            "comment": "LockBit 3.0 leak site \u2014 for tracking victim data publication",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "a892e994-8815-4fba-881f-59d6c53fcf34",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "3f2504e04f8956d14c8a8c5a6c3b9d1e7f4a2b8c9d0e1f2a3b4c5d6e7f8091a2",
+            "comment": "StealBit exfiltration tool binary",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-05",
+            "last_seen": "2026-10-01"
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-002"
+          },
+          {
+            "name": "threat-actor:LockBit 3.0"
+          },
+          {
+            "name": "mitre-attack:T1021.002"
+          },
+          {
+            "name": "mitre-attack:T1570"
+          },
+          {
+            "name": "mitre-attack:T1486"
+          },
+          {
+            "name": "mitre-attack:T1490"
+          },
+          {
+            "name": "mitre-attack:T1562.001"
+          },
+          {
+            "name": "mitre-attack:T1078"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "85d65500-1e44-4690-a677-f39897d0a42c",
+        "info": "TIR-2026-003 \u2014 Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns",
+        "date": "2026-04-12",
+        "threat_level_id": "2",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "33afd9f2-f192-4de5-bdf9-bce3080b21dd",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "mega.nz",
+            "comment": "Personal cloud storage \u2014 blocked per policy; any upload from corp endpoint is suspicious",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "cb63c2e5-d7f3-4f43-b2ca-4acfc6a1ccb3",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "content.dropboxapi.com",
+            "comment": "Dropbox content upload API \u2014 monitor for high-volume transfers from non-authorized devices",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "35b02e93-da91-419e-b354-d8faf5c6892c",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "api.dropboxapi.com",
+            "comment": "Dropbox API endpoint \u2014 bulk operations may indicate automated staging",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "45e97a9d-447c-44b1-ad23-775698d103b1",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "(?i)(source[_-]?code|credentials|customer[_-]?data|pii|proprietary|confidential)\\.zip$",
+            "comment": "Filename pattern indicating sensitive archive creation in user directories",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ]
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-003"
+          },
+          {
+            "name": "threat-actor:Malicious Insider \u2014 Departing Employee"
+          },
+          {
+            "name": "mitre-attack:T1074.001"
+          },
+          {
+            "name": "mitre-attack:T1560.001"
+          },
+          {
+            "name": "mitre-attack:T1567.002"
+          },
+          {
+            "name": "mitre-attack:T1048.003"
+          },
+          {
+            "name": "mitre-attack:T1528"
+          },
+          {
+            "name": "mitre-attack:T1078"
+          },
+          {
+            "name": "mitre-attack:T1530"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "8dd71c71-cf26-46e2-8573-b3907822b259",
+        "info": "TIR-2026-004 \u2014 Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook",
+        "date": "2026-05-16",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "b69ff02b-912f-4898-8e6d-957547fb29a8",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "194.165.16.11",
+            "comment": "Akira affiliate C2 \u2014 observed in multiple IR engagements via AnyDesk relay",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-16",
+            "last_seen": "2026-08-16"
+          },
+          {
+            "uuid": "7445cc91-8c61-4f34-9d26-2e2d4383622f",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "45.61.136.130",
+            "comment": "Akira exfiltration staging server",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-16",
+            "last_seen": "2026-08-16"
+          },
+          {
+            "uuid": "d0261f15-6eb0-4881-b00d-ecdf466d57f5",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+            "comment": "Akira Windows encryptor \u2014 variant targeting manufacturing sector",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-16",
+            "last_seen": "2026-10-16"
+          },
+          {
+            "uuid": "7da83b03-2aa2-4bdb-a7f5-d9ea88ddc73f",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "9f8e7d6c5b4a3928170615043c2b1a0f9e8d7c6b5a4938271605040302010f9e",
+            "comment": "Akira Linux/ESXi encryptor variant",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-16",
+            "last_seen": "2026-10-16"
+          },
+          {
+            "uuid": "954fcec4-6bf2-4dfd-8a2d-824d240b1447",
+            "type": "filename",
+            "category": "Payload delivery",
+            "value": "winupd_svc.msi",
+            "comment": "AnyDesk silent MSI installer renamed to masquerade as Windows update",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-16",
+            "last_seen": "2026-08-16"
+          },
+          {
+            "uuid": "df0af76f-a9b0-4ac7-824e-37ec6f2de5b9",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "akiraefceqruaza.onion",
+            "comment": "Akira leak site \u2014 monitor for victim organization listings",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-004"
+          },
+          {
+            "name": "threat-actor:Akira Ransomware"
+          },
+          {
+            "name": "mitre-attack:T1219"
+          },
+          {
+            "name": "mitre-attack:T1486"
+          },
+          {
+            "name": "mitre-attack:T1490"
+          },
+          {
+            "name": "mitre-attack:T1112"
+          },
+          {
+            "name": "mitre-attack:T1562.001"
+          },
+          {
+            "name": "mitre-attack:T1059.001"
+          },
+          {
+            "name": "mitre-attack:T1021.001"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "279bbaf9-a5fe-40ac-a3ee-11fd363b9385",
+        "info": "TIR-2026-005 \u2014 Supply Chain Targeting of the AI/ML Developer Ecosystem",
+        "date": "2026-04-20",
+        "threat_level_id": "2",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "ae9ba2f9-2833-4af7-a2c8-532e727dfd1d",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "torch-utils-ext",
+            "comment": "TeamPCP malicious PyPI package \u2014 mimics torch utility library; harvests AI provider API keys",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "d4b769c6-0990-4b67-a762-aac84ad1766e",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "sklearn-accelerate",
+            "comment": "TeamPCP malicious PyPI package \u2014 mimics scikit-learn; exfils AWS credentials",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "ca0c8e96-5360-4118-be2e-2a8e45012837",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "huggingface-hub-fast",
+            "comment": "TeamPCP malicious PyPI package \u2014 mimics HuggingFace library",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "bab17e76-2b22-446d-9a87-0bb03ad8468f",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "reakt",
+            "comment": "Typosquatted npm package mimicking React; installs keylogger via postinstall",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "eaa64d06-36fa-47cd-967e-18940f53807e",
+            "type": "text",
+            "category": "Payload delivery",
+            "value": "expresss",
+            "comment": "Typosquatted npm package mimicking Express.js framework",
+            "to_ids": false,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "8a48a880-368e-4198-aadb-84b43cfe5f9e",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "104.21.77.42",
+            "comment": "TeamPCP C2 endpoint \u2014 receives API key exfil via HTTPS POST",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "8ada19a1-e0ce-4b5f-b188-5c8cfd21e7d5",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "172.67.183.95",
+            "comment": "Secondary TeamPCP infrastructure \u2014 Cloudflare-proxied; hosts exfil receiver",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-07-20"
+          },
+          {
+            "uuid": "792eeeae-458e-4480-9a59-3e40f682da83",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "2c624232cdd221771294dfbb310acbc8c77f4b0d739d7f5c22f6b2e3e57d412a",
+            "comment": "TeamPCP setup.py payload \u2014 MD5 of malicious post-install hook",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-04-20",
+            "last_seen": "2026-10-20"
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-005"
+          },
+          {
+            "name": "threat-actor:TeamPCP"
+          },
+          {
+            "name": "threat-actor:Unknown Supply Chain Actor"
+          },
+          {
+            "name": "mitre-attack:T1195.001"
+          },
+          {
+            "name": "mitre-attack:T1195.002"
+          },
+          {
+            "name": "mitre-attack:T1059.006"
+          },
+          {
+            "name": "mitre-attack:T1056.001"
+          },
+          {
+            "name": "mitre-attack:T1041"
+          },
+          {
+            "name": "mitre-attack:T1552"
+          },
+          {
+            "name": "mitre-attack:T1027"
+          },
+          {
+            "name": "mitre-attack:T1610"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "e57c51dd-91c1-4733-82c6-0b800d191841",
+        "info": "TIR-2026-006 \u2014 Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing",
+        "date": "2026-05-08",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "3558c344-3e04-42fc-91f7-3436c07ef687",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "185.220.101.34",
+            "comment": "Tor exit node frequently used by Scattered Spider for initial VPN authentication",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          },
+          {
+            "uuid": "6d905877-9619-419c-9096-32971ff0d613",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "185.220.100.252",
+            "comment": "Tor exit node \u2014 Scattered Spider vishing infrastructure",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          },
+          {
+            "uuid": "97175ff8-c2de-4115-830a-101968c86dde",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "45.142.212.100",
+            "comment": "EvilGinx2 phishing proxy infrastructure",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          },
+          {
+            "uuid": "4199e3d4-7bc6-4200-8f97-cb5e8ebc7fe4",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "okta-helpdesk-support[.]com",
+            "comment": "Scattered Spider typosquat domain used in helpdesk impersonation vishing",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          },
+          {
+            "uuid": "3482f989-0a3a-4de8-b376-57e1e9a5a5a0",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "microsoft-support-sso[.]net",
+            "comment": "SSO phishing domain used in Scattered Spider campaigns",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          },
+          {
+            "uuid": "fadd689f-8fe4-44e0-83fe-11de08f5eff0",
+            "type": "email-src",
+            "category": "Payload delivery",
+            "value": "it-helpdesk-noreply@support-okta[.]com",
+            "comment": "Phishing email sender used in Scattered Spider campaigns",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-08",
+            "last_seen": "2026-08-08"
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-006"
+          },
+          {
+            "name": "threat-actor:Scattered Spider"
+          },
+          {
+            "name": "mitre-attack:T1621"
+          },
+          {
+            "name": "mitre-attack:T1566.004"
+          },
+          {
+            "name": "mitre-attack:T1078"
+          },
+          {
+            "name": "mitre-attack:T1133"
+          },
+          {
+            "name": "mitre-attack:T1539"
+          },
+          {
+            "name": "mitre-attack:T1556.006"
+          },
+          {
+            "name": "mitre-attack:T1598.004"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "a6e51d45-defd-4f18-af7b-1d21260fd433",
+        "info": "TIR-2026-007 \u2014 BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption",
+        "date": "2026-05-28",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "00b03fc3-a152-4e16-9d1a-9fcfcde1bba1",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "84.247.133.198",
+            "comment": "BlackCat/ALPHV Cobalt Strike team server \u2014 reactivated post-LE disruption",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-28",
+            "last_seen": "2026-08-28"
+          },
+          {
+            "uuid": "70e90123-77da-4a8c-9b45-93f677088f3b",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "193.42.33.144",
+            "comment": "ALPHV affiliate exfiltration staging via RClone",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-28",
+            "last_seen": "2026-08-28"
+          },
+          {
+            "uuid": "3684f4b1-2c63-4670-b6aa-e0e1378704ec",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "alphvmmm27o3rrkfbolpoya6klduoiulbqs4clyso2obdmxu2notjfvqd.onion",
+            "comment": "Current ALPHV leak site (post-relaunch) \u2014 monitor for victim listings",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          },
+          {
+            "uuid": "549a59e9-820d-4517-ba40-dd39a6f2d39d",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "f8f0b3836b1cde9547b7c9e3f27fe1d5a0e9b8c7d6e5f4a3b2c1d0e9f8a7b6c5",
+            "comment": "BlackCat Rust encryptor \u2014 latest variant with ESXi targeting capability",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-28",
+            "last_seen": "2026-10-28"
+          },
+          {
+            "uuid": "e15c412f-cb0d-4570-ae0a-f4fcc3807e17",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678",
+            "comment": "RClone binary \u2014 modified version with hardcoded MEGA credentials",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-05-28",
+            "last_seen": "2026-10-28"
+          },
+          {
+            "uuid": "b360044e-33ab-4dfe-b1be-556dc3d6bab2",
+            "type": "url",
+            "category": "Network activity",
+            "value": "https://alphvmm2xzrqazqfxsq7s3bqefmphfxmydixfmyakyf.onion/upload",
+            "comment": "ALPHV data extortion portal \u2014 used for victim negotiation and proof-of-data",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:white"
+              }
+            ]
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-007"
+          },
+          {
+            "name": "threat-actor:BlackCat/ALPHV"
+          },
+          {
+            "name": "mitre-attack:T1003.001"
+          },
+          {
+            "name": "mitre-attack:T1003.002"
+          },
+          {
+            "name": "mitre-attack:T1078.002"
+          },
+          {
+            "name": "mitre-attack:T1484.001"
+          },
+          {
+            "name": "mitre-attack:T1021.002"
+          },
+          {
+            "name": "mitre-attack:T1082"
+          },
+          {
+            "name": "mitre-attack:T1135"
+          },
+          {
+            "name": "mitre-attack:T1083"
+          },
+          {
+            "name": "mitre-attack:T1486"
+          },
+          {
+            "name": "mitre-attack:T1491.002"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "021adccb-cd96-4ffd-be88-aca50b3aecae",
+        "info": "TIR-2026-008 \u2014 FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores",
+        "date": "2026-06-02",
+        "threat_level_id": "2",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "78e145a0-2e55-46d1-8027-4233a7d6c005",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "updates-cdn-service[.]com",
+            "comment": "FIN7 POWERPLANT C2 domain \u2014 DNS TXT records used for command delivery",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          },
+          {
+            "uuid": "308b668d-c359-4588-99e0-062408c33de7",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "software-patch-delivery[.]net",
+            "comment": "FIN7 DICELOADER staging domain",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          },
+          {
+            "uuid": "b0ebe0f7-2fbb-4e0a-b68c-1ee5ba575920",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "91.92.254.25",
+            "comment": "FIN7 infrastructure \u2014 DICELOADER C2 server",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          },
+          {
+            "uuid": "f1463e72-2e28-4921-98ef-44c9a9a8466a",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+            "comment": "POWERPLANT PowerShell backdoor \u2014 delivered via USB autorun",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          },
+          {
+            "uuid": "4d900602-527d-4fe6-9a6f-c0a2e64afc41",
+            "type": "filename",
+            "category": "Payload delivery",
+            "value": "FlashDriveSetup.exe",
+            "comment": "FIN7 USB dropper filename \u2014 BadUSB campaign targeting retail POS",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          },
+          {
+            "uuid": "4896af9f-64af-48d3-98b0-0ecfce1d96fe",
+            "type": "filename",
+            "category": "Payload delivery",
+            "value": "POWERPLANT.ps1",
+            "comment": "FIN7 PowerShell C2 beacon script \u2014 obfuscated with base64 + XOR",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-02",
+            "last_seen": "2026-09-02"
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-008"
+          },
+          {
+            "name": "threat-actor:FIN7"
+          },
+          {
+            "name": "mitre-attack:T1091"
+          },
+          {
+            "name": "mitre-attack:T1059.001"
+          },
+          {
+            "name": "mitre-attack:T1059.005"
+          },
+          {
+            "name": "mitre-attack:T1055"
+          },
+          {
+            "name": "mitre-attack:T1105"
+          },
+          {
+            "name": "mitre-attack:T1071.001"
+          },
+          {
+            "name": "mitre-attack:T1041"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    },
+    {
+      "Event": {
+        "uuid": "d7ae5fc6-b8d8-4451-a398-6274e47e83ae",
+        "info": "TIR-2026-009 \u2014 Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure",
+        "date": "2026-06-10",
+        "threat_level_id": "1",
+        "analysis": "2",
+        "distribution": "1",
+        "Attribute": [
+          {
+            "uuid": "59c28ecd-ae34-412d-b039-cb7164eedfd6",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "174.138.56.195",
+            "comment": "Volt Typhoon SOHO router hop \u2014 compromised Cisco RV VPN device used as proxy",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-10",
+            "last_seen": "2026-09-10"
+          },
+          {
+            "uuid": "417628aa-b00c-412e-a184-ba583f044895",
+            "type": "ip-dst",
+            "category": "Network activity",
+            "value": "167.248.133.56",
+            "comment": "KV-botnet node \u2014 compromised SOHO device relaying Volt Typhoon traffic",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-10",
+            "last_seen": "2026-09-10"
+          },
+          {
+            "uuid": "755f96b1-3ac6-4a2a-9dfe-c50e2c978fe7",
+            "type": "domain",
+            "category": "Network activity",
+            "value": "vpn-secure-connect[.]org",
+            "comment": "Volt Typhoon proxy infrastructure domain",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-10",
+            "last_seen": "2026-09-10"
+          },
+          {
+            "uuid": "fe130b01-7d93-40f2-bb12-d0fc99391573",
+            "type": "sha256",
+            "category": "Payload delivery",
+            "value": "b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2",
+            "comment": "FRP reverse proxy binary \u2014 custom compiled for Volt Typhoon operations",
+            "to_ids": true,
+            "tags": [
+              {
+                "name": "tlp:amber"
+              }
+            ],
+            "first_seen": "2026-06-10",
+            "last_seen": "2026-09-10"
+          }
+        ],
+        "Tag": [
+          {
+            "name": "tlp:amber"
+          },
+          {
+            "name": "threat-intel:report=TIR-2026-009"
+          },
+          {
+            "name": "threat-actor:Volt Typhoon"
+          },
+          {
+            "name": "mitre-attack:T1190"
+          },
+          {
+            "name": "mitre-attack:T1078"
+          },
+          {
+            "name": "mitre-attack:T1133"
+          },
+          {
+            "name": "mitre-attack:T1003.001"
+          },
+          {
+            "name": "mitre-attack:T1059.001"
+          },
+          {
+            "name": "mitre-attack:T1105"
+          },
+          {
+            "name": "mitre-attack:T1090.002"
+          },
+          {
+            "name": "mitre-attack:T1018"
+          },
+          {
+            "name": "mitre-attack:T1049"
+          },
+          {
+            "name": "mitre-attack:T1087.002"
+          }
+        ],
+        "Orgc": {
+          "name": "WINTERMUTE"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+name: Validate Hunt Format
+
+on:
+  pull_request:
+    paths:
+      - 'hunts/**/LOCK.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate LOCK.md files changed in PR
+        run: |
+          python3 -B - << 'EOF'
+          import re, sys
+          from pathlib import Path
+
+          REQUIRED_FIELDS = ["Hunt ID", "Status", "ATT&CK Techniques", "ATT&CK Tactics", "Priority"]
+          REQUIRED_SECTIONS = ["## LEARN", "## OBSERVE", "## CHECK", "## KEEP", "## METRICS"]
+
+          errors = []
+          for lock_file in Path("hunts").rglob("LOCK.md"):
+              text = lock_file.read_text(encoding="utf-8")
+              for f in REQUIRED_FIELDS:
+                  if not re.search(rf"^\*\*{re.escape(f)}:\*\*", text, re.MULTILINE):
+                      errors.append(f"{lock_file}: missing field '{f}'")
+              for s in REQUIRED_SECTIONS:
+                  if s not in text:
+                      errors.append(f"{lock_file}: missing section '{s}'")
+
+          if errors:
+              print("LOCK.md validation errors:")
+              for e in errors:
+                  print(f"  - {e}")
+              sys.exit(1)
+          else:
+              print(f"All LOCK.md files valid.")
+          EOF

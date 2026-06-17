@@ -1,0 +1,3666 @@
+{
+  "type": "bundle",
+  "id": "bundle--cbd5273d-6d54-49d1-b66c-91a9678e2e90",
+  "objects": [
+    {
+      "type": "marking-definition",
+      "spec_version": "2.1",
+      "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+      "created": "2017-01-20T00:00:00Z",
+      "definition_type": "tlp",
+      "definition": {
+        "tlp": "white"
+      }
+    },
+    {
+      "type": "marking-definition",
+      "spec_version": "2.1",
+      "id": "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da",
+      "created": "2017-01-20T00:00:00Z",
+      "definition_type": "tlp",
+      "definition": {
+        "tlp": "green"
+      }
+    },
+    {
+      "type": "marking-definition",
+      "spec_version": "2.1",
+      "id": "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82",
+      "created": "2017-01-20T00:00:00Z",
+      "definition_type": "tlp",
+      "definition": {
+        "tlp": "amber"
+      }
+    },
+    {
+      "type": "marking-definition",
+      "spec_version": "2.1",
+      "id": "marking-definition--5e57c739-391a-4eb3-b6be-7d15ca92d5ed",
+      "created": "2017-01-20T00:00:00Z",
+      "definition_type": "tlp",
+      "definition": {
+        "tlp": "red"
+      }
+    },
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "created": "2026-06-17T14:16:56Z",
+      "modified": "2026-06-17T14:16:56Z",
+      "name": "WINTERMUTE Threat Hunting Platform",
+      "identity_class": "organization"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "Glassworm",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4836c72f-58f2-43e1-8dc8-8800185cca5f",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1195.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1195.001",
+          "url": "https://attack.mitre.org/techniques/T1195/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--12beb4ef-5d68-47f8-b9d9-e45310d0ac83",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1059.007",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.007",
+          "url": "https://attack.mitre.org/techniques/T1059/007"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e66a8b93-e14f-4351-b3df-522a090cc127",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1027",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027",
+          "url": "https://attack.mitre.org/techniques/T1027"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5a918aeb-05eb-476e-b03e-d36c2afde411",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1027.010",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027.010",
+          "url": "https://attack.mitre.org/techniques/T1027/010"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c75daf0e-def0-4bb7-89ee-c5b1f5bbebdd",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1552",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1552",
+          "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6259d692-bd87-4c94-ab5b-befb14bec5ab",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1528",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1528",
+          "url": "https://attack.mitre.org/techniques/T1528"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d7e8e2e3-18c7-4a5d-9ce5-92d59215d12a",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "T1071.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.001",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4c76b313-aa7c-4a6c-9594-faa369dcdfaf",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "DOMAIN: api.mainnet-beta.solana.com",
+      "description": "C2 channel for second-stage payload delivery",
+      "pattern": "[domain-name:value = 'api.mainnet-beta.solana.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-03-18T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-001",
+          "description": "Glassworm: Invisible Unicode Supply Chain Attack"
+        }
+      ],
+      "valid_until": "2026-09-18T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27f5ffee-ffb9-46d1-9eae-907d4b7d8e38",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--4c76b313-aa7c-4a6c-9594-faa369dcdfaf",
+      "target_ref": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--86f50ec1-28fa-4c57-8632-6e801749db6f",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "PACKAGE: @aifabrix/miso-client",
+      "description": "Malicious npm package published 2026-03-12",
+      "pattern": "[file:name = '@aifabrix/miso-client']",
+      "pattern_type": "stix",
+      "valid_from": "2026-03-18T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-001",
+          "description": "Glassworm: Invisible Unicode Supply Chain Attack"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e2234a31-3719-41e8-a477-f7110ffe4225",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--86f50ec1-28fa-4c57-8632-6e801749db6f",
+      "target_ref": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--405eff16-6d79-467f-a251-3550f1f470a6",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "PACKAGE: @iflow-mcp/watercrawl-watercrawl-mcp",
+      "description": "Malicious npm package published 2026-03-12",
+      "pattern": "[file:name = '@iflow-mcp/watercrawl-watercrawl-mcp']",
+      "pattern_type": "stix",
+      "valid_from": "2026-03-18T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-001",
+          "description": "Glassworm: Invisible Unicode Supply Chain Attack"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7a6eea5d-c7e1-4329-8f17-0cdc6b2b533c",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--405eff16-6d79-467f-a251-3550f1f470a6",
+      "target_ref": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--97250f99-e10f-4183-8bbc-35a3bdc70758",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "FILENAME: quartz.quartz-markdown-editor",
+      "description": "Malicious VS Code extension published 2026-03-12",
+      "pattern": "[file:name = 'quartz.quartz-markdown-editor']",
+      "pattern_type": "stix",
+      "valid_from": "2026-03-18T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-001",
+          "description": "Glassworm: Invisible Unicode Supply Chain Attack"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07778716-1281-49f9-8e35-eae0b8a8f9b8",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--97250f99-e10f-4183-8bbc-35a3bdc70758",
+      "target_ref": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6450afce-4f7a-4079-87aa-616fa71d5843",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "name": "REGEX: eval\\(Buffer\\.from\\(",
+      "description": "Decode-and-eval pattern in malicious JS \u2014 hunt behavioral indicator",
+      "pattern": "[file:content_ref.payload_bin MATCHES 'eval\\(Buffer\\.from\\(']",
+      "pattern_type": "stix",
+      "valid_from": "2026-03-18T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-001",
+          "description": "Glassworm: Invisible Unicode Supply Chain Attack"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3203a38f-af59-4b64-9c17-10a4a49c68cd",
+      "created": "2026-03-18T00:00:00Z",
+      "modified": "2026-03-18T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--6450afce-4f7a-4079-87aa-616fa71d5843",
+      "target_ref": "threat-actor--67a67810-bd74-4b11-8703-ea464ac27d92",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "LockBit 3.0",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7ba32013-503c-45cf-92db-9d70158966d6",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1021.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.002",
+          "url": "https://attack.mitre.org/techniques/T1021/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3343a350-798b-4d6e-b513-45ef6ef85a00",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1570",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1570",
+          "url": "https://attack.mitre.org/techniques/T1570"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6c813051-4e9a-42e4-8dd7-3e4ec84bfd8c",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1486",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--718e1f6f-0977-44e3-9340-e8f35aafb4be",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1490",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1490",
+          "url": "https://attack.mitre.org/techniques/T1490"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8d2d5829-b318-4c42-ab62-0e3e40c054ab",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1562.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1562.001",
+          "url": "https://attack.mitre.org/techniques/T1562/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f12cc3c0-f26f-47e0-bf64-6e6b3aba1ae5",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "T1078",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8e75837c-958e-462a-b71c-ca58511b92fd",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "IP: 5.188.87.194",
+      "description": "LockBit affiliate C2 infrastructure \u2014 observed in SMB fan-out campaigns",
+      "pattern": "[ipv4-addr:value = '5.188.87.194']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ],
+      "valid_until": "2026-07-05T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b292cb88-22bb-43a6-b17e-2cbda94bfa6e",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--8e75837c-958e-462a-b71c-ca58511b92fd",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--72b3eda7-4f02-41d1-99dd-eef44a16c7ac",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "IP: 185.220.101.47",
+      "description": "Tor exit node used by affiliates for initial access",
+      "pattern": "[ipv4-addr:value = '185.220.101.47']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ],
+      "valid_until": "2026-07-05T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98081f6d-31c8-4502-99ce-08b36d829ec3",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--72b3eda7-4f02-41d1-99dd-eef44a16c7ac",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--13d53344-4d4c-4d6f-ab15-6a735dcab73e",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "SHA256: 0e04e4f9523c8b44f3f517b82c1c50f3f70aeebfe5a57b1a4d2a6b3a0f5d6c8a",
+      "description": "LockBit 3.0 encryptor binary \u2014 healthcare variant with intermittent encryption",
+      "pattern": "[file:hashes.SHA-256 = '0e04e4f9523c8b44f3f517b82c1c50f3f70aeebfe5a57b1a4d2a6b3a0f5d6c8a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ],
+      "valid_until": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98f782f4-48a8-4976-b475-93b81dc4fcb0",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--13d53344-4d4c-4d6f-ab15-6a735dcab73e",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d926c520-c19b-4885-94ad-67fec7a4a5b8",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "FILENAME: svchost_updater.exe",
+      "description": "LockBit dropper masquerading as Windows service update",
+      "pattern": "[file:name = 'svchost_updater.exe']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ],
+      "valid_until": "2026-07-05T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b9fb9506-f3ce-43e8-9a41-48d21aa09e07",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--d926c520-c19b-4885-94ad-67fec7a4a5b8",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bb6e421f-bbeb-487b-9d2b-4f152a845059",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "DOMAIN: lockbit3ouyhwujm.onion",
+      "description": "LockBit 3.0 leak site \u2014 for tracking victim data publication",
+      "pattern": "[domain-name:value = 'lockbit3ouyhwujm.onion']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8578701e-38da-411c-964b-b23dce2c7602",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--bb6e421f-bbeb-487b-9d2b-4f152a845059",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e80a7c6f-6558-4ba8-ade8-8a61dff57fac",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "name": "SHA256: 3f2504e04f8956d14c8a8c5a6c3b9d1e7f4a2b8c9d0e1f2a3b4c5d6e7f8091a2",
+      "description": "StealBit exfiltration tool binary",
+      "pattern": "[file:hashes.SHA-256 = '3f2504e04f8956d14c8a8c5a6c3b9d1e7f4a2b8c9d0e1f2a3b4c5d6e7f8091a2']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-05T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-002",
+          "description": "LockBit 3.0 Accelerated Healthcare Sector Targeting"
+        }
+      ],
+      "valid_until": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2dcda512-6ac7-4958-a7c8-2c851b0283ee",
+      "created": "2026-04-05T00:00:00Z",
+      "modified": "2026-04-05T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e80a7c6f-6558-4ba8-ade8-8a61dff57fac",
+      "target_ref": "threat-actor--f3d23f2a-ec20-40d4-a865-aa55ac1b6b5e",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--8842fefe-db81-4fa1-a4bc-e5eb491b2cbf",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "Malicious Insider \u2014 Departing Employee",
+      "threat_actor_types": [
+        "insider"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--42cfa129-767e-4952-b41a-5b147efc97cd",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1074.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1074.001",
+          "url": "https://attack.mitre.org/techniques/T1074/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--deb84b51-9d77-4e29-9aec-80ae5139ef07",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1560.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1560.001",
+          "url": "https://attack.mitre.org/techniques/T1560/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b8c21001-8124-4aa0-af24-3ed49358cdfa",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1567.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1567.002",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bd0eed39-f1e3-4992-88a5-b22184096a3b",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1048.003",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1048.003",
+          "url": "https://attack.mitre.org/techniques/T1048/003"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--863af82c-29ec-4f4b-9a0b-b60c05107061",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1528",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1528",
+          "url": "https://attack.mitre.org/techniques/T1528"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9e9b3704-73ee-4c5b-8cdd-4b9425555a2c",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1078",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c0adbd56-e1f6-4ae8-b07a-65863d542697",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "T1530",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1530",
+          "url": "https://attack.mitre.org/techniques/T1530"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--527d8df2-f66d-431e-8711-c87d3d2c1544",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "DOMAIN: mega.nz",
+      "description": "Personal cloud storage \u2014 blocked per policy; any upload from corp endpoint is suspicious",
+      "pattern": "[domain-name:value = 'mega.nz']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-12T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-003",
+          "description": "Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0218ddc5-91bd-4ddc-992a-9bc3cac409db",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--527d8df2-f66d-431e-8711-c87d3d2c1544",
+      "target_ref": "threat-actor--8842fefe-db81-4fa1-a4bc-e5eb491b2cbf",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5d2ce4a8-136b-4840-a782-162eecce3879",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "DOMAIN: content.dropboxapi.com",
+      "description": "Dropbox content upload API \u2014 monitor for high-volume transfers from non-authorized devices",
+      "pattern": "[domain-name:value = 'content.dropboxapi.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-12T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-003",
+          "description": "Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09302f4c-2caf-412f-a85e-3c5df124cf2d",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--5d2ce4a8-136b-4840-a782-162eecce3879",
+      "target_ref": "threat-actor--8842fefe-db81-4fa1-a4bc-e5eb491b2cbf",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--82876bbf-0ce7-4c6e-949f-08bc93e7b720",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "DOMAIN: api.dropboxapi.com",
+      "description": "Dropbox API endpoint \u2014 bulk operations may indicate automated staging",
+      "pattern": "[domain-name:value = 'api.dropboxapi.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-12T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-003",
+          "description": "Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c1a056d8-bf86-4f08-800f-ba0c5956d543",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--82876bbf-0ce7-4c6e-949f-08bc93e7b720",
+      "target_ref": "threat-actor--8842fefe-db81-4fa1-a4bc-e5eb491b2cbf",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--44efef71-507e-4e6c-bc7c-a0f191fe4904",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "name": "REGEX: (?i)(source[_-]?code|credentials|customer[_-]?data|pii|proprietary|confidential)\\.zip$",
+      "description": "Filename pattern indicating sensitive archive creation in user directories",
+      "pattern": "[file:content_ref.payload_bin MATCHES '(?i)(source[_-]?code|credentials|customer[_-]?data|pii|proprietary|confidential)\\.zip$']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-12T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-003",
+          "description": "Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--081fe86d-d906-4d22-9b68-825af3d66b21",
+      "created": "2026-04-12T00:00:00Z",
+      "modified": "2026-04-12T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--44efef71-507e-4e6c-bc7c-a0f191fe4904",
+      "target_ref": "threat-actor--8842fefe-db81-4fa1-a4bc-e5eb491b2cbf",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "Akira Ransomware",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f3a8c821-c3ed-438b-9a40-3659e9f34b8e",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1219",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1219",
+          "url": "https://attack.mitre.org/techniques/T1219"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1acab693-0ae9-40d0-a203-db274f3e5358",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1486",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--98657696-854a-461a-82ce-2b20d5b3819a",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1490",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1490",
+          "url": "https://attack.mitre.org/techniques/T1490"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7e487eb1-dd61-462f-99a9-ebd49e46b528",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1112",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1112",
+          "url": "https://attack.mitre.org/techniques/T1112"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--861b2bbb-bd6f-474b-853f-6ff51b2e52f4",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1562.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1562.001",
+          "url": "https://attack.mitre.org/techniques/T1562/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--72937737-4eef-4a25-aed4-9373cdc02292",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1059.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--57868b63-d9f4-4522-8314-78cb1c3d90f3",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "T1021.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.001",
+          "url": "https://attack.mitre.org/techniques/T1021/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e8c4b9d5-3f85-4030-b769-3d111f5997a8",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "IP: 194.165.16.11",
+      "description": "Akira affiliate C2 \u2014 observed in multiple IR engagements via AnyDesk relay",
+      "pattern": "[ipv4-addr:value = '194.165.16.11']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ],
+      "valid_until": "2026-08-16T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c56c1157-1dd6-46e8-a518-80819c73c7fb",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e8c4b9d5-3f85-4030-b769-3d111f5997a8",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ee852a05-ca2b-479d-a875-b593a58b63c4",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "IP: 45.61.136.130",
+      "description": "Akira exfiltration staging server",
+      "pattern": "[ipv4-addr:value = '45.61.136.130']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ],
+      "valid_until": "2026-08-16T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--862c9830-420f-4503-8e8a-21a866a953e4",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ee852a05-ca2b-479d-a875-b593a58b63c4",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b64ef29e-37af-4486-9b40-df31b09f22a1",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "SHA256: 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+      "description": "Akira Windows encryptor \u2014 variant targeting manufacturing sector",
+      "pattern": "[file:hashes.SHA-256 = '1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ],
+      "valid_until": "2026-10-16T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8829874-cb56-4db9-9691-1749bdf255b2",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--b64ef29e-37af-4486-9b40-df31b09f22a1",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d7648380-e9e3-4765-aa12-5764cc5a695c",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "SHA256: 9f8e7d6c5b4a3928170615043c2b1a0f9e8d7c6b5a4938271605040302010f9e",
+      "description": "Akira Linux/ESXi encryptor variant",
+      "pattern": "[file:hashes.SHA-256 = '9f8e7d6c5b4a3928170615043c2b1a0f9e8d7c6b5a4938271605040302010f9e']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ],
+      "valid_until": "2026-10-16T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76b446b8-d0c1-4ec0-8b4b-4cc7cec27171",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--d7648380-e9e3-4765-aa12-5764cc5a695c",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7ab0e779-46a0-4b81-ad79-5de8584b2c6f",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "FILENAME: winupd_svc.msi",
+      "description": "AnyDesk silent MSI installer renamed to masquerade as Windows update",
+      "pattern": "[file:name = 'winupd_svc.msi']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ],
+      "valid_until": "2026-08-16T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6eb8cb1c-3728-4c25-95ea-b2a0f04ab2ff",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--7ab0e779-46a0-4b81-ad79-5de8584b2c6f",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d1b0b0fb-cafa-442c-93d4-cd8a7bbcefa7",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "name": "DOMAIN: akiraefceqruaza.onion",
+      "description": "Akira leak site \u2014 monitor for victim organization listings",
+      "pattern": "[domain-name:value = 'akiraefceqruaza.onion']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-16T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-004",
+          "description": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--75233b1e-3258-4b49-86fb-6357893e5435",
+      "created": "2026-05-16T00:00:00Z",
+      "modified": "2026-05-16T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--d1b0b0fb-cafa-442c-93d4-cd8a7bbcefa7",
+      "target_ref": "threat-actor--6e5754cc-3b2f-4b93-a661-084b736db616",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "TeamPCP",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "Unknown Supply Chain Actor",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--15a1a8da-e289-47cb-b82c-fccdf39c95c3",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1195.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1195.001",
+          "url": "https://attack.mitre.org/techniques/T1195/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b152e509-4bcd-4c0d-9e4a-b595c15f6b90",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1195.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1195.002",
+          "url": "https://attack.mitre.org/techniques/T1195/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--76a192cb-d430-4f9d-b33d-f755cdc0c22f",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1059.006",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.006",
+          "url": "https://attack.mitre.org/techniques/T1059/006"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6ce9a293-52c3-4c1d-9801-418b460dbb26",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1056.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1056.001",
+          "url": "https://attack.mitre.org/techniques/T1056/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a40f97fa-535e-4445-8b0b-2e46a614b5f3",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1041",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1041",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ed600383-03b6-48db-a94d-141f937962d0",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1552",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1552",
+          "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--372d2639-95de-4698-9ca1-605f7546420a",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1027",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027",
+          "url": "https://attack.mitre.org/techniques/T1027"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--33c332be-7c9f-46ad-870d-5dccbc9f4736",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "T1610",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1610",
+          "url": "https://attack.mitre.org/techniques/T1610"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c5d12bf3-0bf7-414b-a0e6-bc0d9d780610",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "PACKAGE: torch-utils-ext",
+      "description": "TeamPCP malicious PyPI package \u2014 mimics torch utility library; harvests AI provider API keys",
+      "pattern": "[file:name = 'torch-utils-ext']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2054444-4fbf-49fe-8770-8a49b1a6fe21",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--c5d12bf3-0bf7-414b-a0e6-bc0d9d780610",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--310d11f5-0c45-47dc-b4fb-ed38189ee104",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--c5d12bf3-0bf7-414b-a0e6-bc0d9d780610",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--26555ab5-abb9-44ba-b98c-c60795fed030",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "PACKAGE: sklearn-accelerate",
+      "description": "TeamPCP malicious PyPI package \u2014 mimics scikit-learn; exfils AWS credentials",
+      "pattern": "[file:name = 'sklearn-accelerate']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55b8b71b-c022-4e83-9bfb-465591a4c599",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--26555ab5-abb9-44ba-b98c-c60795fed030",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da5e9ee4-d977-459a-b86c-b757fba4eaab",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--26555ab5-abb9-44ba-b98c-c60795fed030",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5e203a51-f28d-4154-b619-2b5b07963887",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "PACKAGE: huggingface-hub-fast",
+      "description": "TeamPCP malicious PyPI package \u2014 mimics HuggingFace library",
+      "pattern": "[file:name = 'huggingface-hub-fast']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8524d5c1-884b-49a1-9e08-4f6f91c65111",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--5e203a51-f28d-4154-b619-2b5b07963887",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--897285d7-8237-4c8a-8e43-19e8400c7254",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--5e203a51-f28d-4154-b619-2b5b07963887",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cbd55e27-03d4-4260-a201-f420ef3b6410",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "PACKAGE: reakt",
+      "description": "Typosquatted npm package mimicking React; installs keylogger via postinstall",
+      "pattern": "[file:name = 'reakt']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f90661e-4b8c-4d73-b4a2-8de03c9f01d7",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--cbd55e27-03d4-4260-a201-f420ef3b6410",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1677b4c3-5acd-4db6-aa50-1c07e9ef71d8",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--cbd55e27-03d4-4260-a201-f420ef3b6410",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b4f001d3-76b1-4f50-9962-25e95d29b35d",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "PACKAGE: expresss",
+      "description": "Typosquatted npm package mimicking Express.js framework",
+      "pattern": "[file:name = 'expresss']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--529404f6-aae3-4d7e-8a7e-06b6dc6b7e17",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--b4f001d3-76b1-4f50-9962-25e95d29b35d",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0122d4ae-3917-469e-81d0-95154fb49f8c",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--b4f001d3-76b1-4f50-9962-25e95d29b35d",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ca90ba50-1fde-4ef2-bca5-8db50736887d",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "IP: 104.21.77.42",
+      "description": "TeamPCP C2 endpoint \u2014 receives API key exfil via HTTPS POST",
+      "pattern": "[ipv4-addr:value = '104.21.77.42']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4be8a153-a27c-40e2-bee4-aa9400ef2c7d",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ca90ba50-1fde-4ef2-bca5-8db50736887d",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a490cb1-1d26-44c9-bd29-22123ad65ab9",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ca90ba50-1fde-4ef2-bca5-8db50736887d",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f54008ba-324f-4c06-94cd-2136f21cc2eb",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "IP: 172.67.183.95",
+      "description": "Secondary TeamPCP infrastructure \u2014 Cloudflare-proxied; hosts exfil receiver",
+      "pattern": "[ipv4-addr:value = '172.67.183.95']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-07-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6974f9f1-d965-4e22-b416-37bcdec457f3",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--f54008ba-324f-4c06-94cd-2136f21cc2eb",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b1239ff-5f4a-4e36-adbe-363dee67dce3",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--f54008ba-324f-4c06-94cd-2136f21cc2eb",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cc3443ac-921b-41af-9675-035c959c114a",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "name": "SHA256: 2c624232cdd221771294dfbb310acbc8c77f4b0d739d7f5c22f6b2e3e57d412a",
+      "description": "TeamPCP setup.py payload \u2014 MD5 of malicious post-install hook",
+      "pattern": "[file:hashes.SHA-256 = '2c624232cdd221771294dfbb310acbc8c77f4b0d739d7f5c22f6b2e3e57d412a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-04-20T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-005",
+          "description": "Supply Chain Targeting of the AI/ML Developer Ecosystem"
+        }
+      ],
+      "valid_until": "2026-10-20T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--690b595a-bb8f-4c3b-91a7-691a38aaecc1",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--cc3443ac-921b-41af-9675-035c959c114a",
+      "target_ref": "threat-actor--38e6bf29-fe13-4c94-be7d-5c3def163895",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8e5e56e2-c615-4544-9e97-bb68355057d4",
+      "created": "2026-04-20T00:00:00Z",
+      "modified": "2026-04-20T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--cc3443ac-921b-41af-9675-035c959c114a",
+      "target_ref": "threat-actor--40d07416-0ac1-473c-86ca-020fa0e6c812",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "Scattered Spider",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--34dcb8ff-6977-44ed-9cf3-4d7b6fc92d88",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1621",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1621",
+          "url": "https://attack.mitre.org/techniques/T1621"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4640c818-71de-4859-a599-a48367f4fc9f",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1566.004",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.004",
+          "url": "https://attack.mitre.org/techniques/T1566/004"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6a056b48-08e1-425b-b2e2-36e87ba54db1",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1078",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--719f328e-1c91-446f-be7a-d52c69fe2ef5",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1133",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1133",
+          "url": "https://attack.mitre.org/techniques/T1133"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--97db9849-c45c-4c82-adea-3994cdefef19",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1539",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1539",
+          "url": "https://attack.mitre.org/techniques/T1539"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0f1d731f-feaf-4b60-9e6e-1d1d4795b909",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1556.006",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1556.006",
+          "url": "https://attack.mitre.org/techniques/T1556/006"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e218a4e3-a5d1-4258-94a9-44a8b2f7b6f4",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "T1598.004",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1598.004",
+          "url": "https://attack.mitre.org/techniques/T1598/004"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7b396a8b-b1f1-4190-a31b-0121a6e6da03",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "IP: 185.220.101.34",
+      "description": "Tor exit node frequently used by Scattered Spider for initial VPN authentication",
+      "pattern": "[ipv4-addr:value = '185.220.101.34']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b5d5878e-764d-4378-88d2-3f3d4106bec5",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--7b396a8b-b1f1-4190-a31b-0121a6e6da03",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--581a2154-03ee-4fe5-82ab-6670e3f3d6cb",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "IP: 185.220.100.252",
+      "description": "Tor exit node \u2014 Scattered Spider vishing infrastructure",
+      "pattern": "[ipv4-addr:value = '185.220.100.252']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d3c18e04-e18b-4798-aba8-6dce835cc3ae",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--581a2154-03ee-4fe5-82ab-6670e3f3d6cb",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--802f480a-18ba-4836-87b2-00af229b6da3",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "IP: 45.142.212.100",
+      "description": "EvilGinx2 phishing proxy infrastructure",
+      "pattern": "[ipv4-addr:value = '45.142.212.100']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7fbda88b-54db-4a7f-ae27-9323fed7bc51",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--802f480a-18ba-4836-87b2-00af229b6da3",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--de3636be-e02b-4c7c-b77f-ec3da84244e9",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "DOMAIN: okta-helpdesk-support[.]com",
+      "description": "Scattered Spider typosquat domain used in helpdesk impersonation vishing",
+      "pattern": "[domain-name:value = 'okta-helpdesk-support[.]com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e42657e-b708-4fd5-858f-02012f26d7e8",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--de3636be-e02b-4c7c-b77f-ec3da84244e9",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9962348f-6133-4b5a-9290-57b249aad1ca",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "DOMAIN: microsoft-support-sso[.]net",
+      "description": "SSO phishing domain used in Scattered Spider campaigns",
+      "pattern": "[domain-name:value = 'microsoft-support-sso[.]net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b5c128e9-b265-44a0-9930-d1c28a6e2285",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--9962348f-6133-4b5a-9290-57b249aad1ca",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5037df70-9d25-4cfc-9484-3711fd76b790",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "name": "EMAIL: it-helpdesk-noreply@support-okta[.]com",
+      "description": "Phishing email sender used in Scattered Spider campaigns",
+      "pattern": "[email-addr:value = 'it-helpdesk-noreply@support-okta[.]com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-08T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-006",
+          "description": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing"
+        }
+      ],
+      "valid_until": "2026-08-08T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08671d92-af0b-4439-a9f7-b5bf82ae9ace",
+      "created": "2026-05-08T00:00:00Z",
+      "modified": "2026-05-08T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--5037df70-9d25-4cfc-9484-3711fd76b790",
+      "target_ref": "threat-actor--f5e2d23b-04af-4726-88b7-f7e3a82c985c",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "BlackCat/ALPHV",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--fd290563-f554-4ce3-be1e-729a73f4e014",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1003.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.001",
+          "url": "https://attack.mitre.org/techniques/T1003/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a878255d-a648-4676-ac2b-f61417b11f06",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1003.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.002",
+          "url": "https://attack.mitre.org/techniques/T1003/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--53aac5dd-68a3-4fc1-a4d6-afc5ca2111f4",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1078.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078.002",
+          "url": "https://attack.mitre.org/techniques/T1078/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1d126bae-683c-44d9-883d-6071d366eb81",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1484.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1484.001",
+          "url": "https://attack.mitre.org/techniques/T1484/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9c9d2f87-bd2d-4997-a41b-2f110dd46abc",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1021.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.002",
+          "url": "https://attack.mitre.org/techniques/T1021/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--54652216-9cce-462a-a489-65a1a80cc380",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1082",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1082",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--159f804a-beae-456c-be1e-d460249a9731",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1135",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1135",
+          "url": "https://attack.mitre.org/techniques/T1135"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--fb8f78c3-3656-46d9-99de-e400023d38f5",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1083",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1083",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5e19f9a6-bf1f-40de-9282-8ee43a07d804",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1486",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--44f19e60-1604-4014-ae25-5a5bb103895a",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "T1491.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1491.002",
+          "url": "https://attack.mitre.org/techniques/T1491/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ad2a28ae-f463-4737-85ed-730aaa0ca3ea",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "IP: 84.247.133.198",
+      "description": "BlackCat/ALPHV Cobalt Strike team server \u2014 reactivated post-LE disruption",
+      "pattern": "[ipv4-addr:value = '84.247.133.198']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ],
+      "valid_until": "2026-08-28T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65d38cd7-b513-4ec0-af9b-4cb58c87da17",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ad2a28ae-f463-4737-85ed-730aaa0ca3ea",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--84b0fc80-4481-4be7-a6de-3b805e94182b",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "IP: 193.42.33.144",
+      "description": "ALPHV affiliate exfiltration staging via RClone",
+      "pattern": "[ipv4-addr:value = '193.42.33.144']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ],
+      "valid_until": "2026-08-28T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0c22230c-c392-477c-97e4-f99d881dff61",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--84b0fc80-4481-4be7-a6de-3b805e94182b",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--01a6b3ec-97fc-40ad-838e-4bd14594f171",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "DOMAIN: alphvmmm27o3rrkfbolpoya6klduoiulbqs4clyso2obdmxu2notjfvqd.onion",
+      "description": "Current ALPHV leak site (post-relaunch) \u2014 monitor for victim listings",
+      "pattern": "[domain-name:value = 'alphvmmm27o3rrkfbolpoya6klduoiulbqs4clyso2obdmxu2notjfvqd.onion']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f800837-d444-45d2-b14c-d48949eab5cd",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--01a6b3ec-97fc-40ad-838e-4bd14594f171",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--15fc3343-b758-4649-8511-e276c0e26f85",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "SHA256: f8f0b3836b1cde9547b7c9e3f27fe1d5a0e9b8c7d6e5f4a3b2c1d0e9f8a7b6c5",
+      "description": "BlackCat Rust encryptor \u2014 latest variant with ESXi targeting capability",
+      "pattern": "[file:hashes.SHA-256 = 'f8f0b3836b1cde9547b7c9e3f27fe1d5a0e9b8c7d6e5f4a3b2c1d0e9f8a7b6c5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ],
+      "valid_until": "2026-10-28T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d455e827-dbc0-4fae-9ae3-2e0e6f456815",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--15fc3343-b758-4649-8511-e276c0e26f85",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c77a9d56-1bbc-485b-8f17-7c936c760318",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "SHA256: a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678",
+      "description": "RClone binary \u2014 modified version with hardcoded MEGA credentials",
+      "pattern": "[file:hashes.SHA-256 = 'a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ],
+      "valid_until": "2026-10-28T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1d84876-e212-41d4-8a76-aac02c240760",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--c77a9d56-1bbc-485b-8f17-7c936c760318",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e36c918e-93ce-4313-b583-4296ee3f9cc4",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "name": "URL: https://alphvmm2xzrqazqfxsq7s3bqefmphfxmydixfmyakyf.onion/upload",
+      "description": "ALPHV data extortion portal \u2014 used for victim negotiation and proof-of-data",
+      "pattern": "[url:value = 'https://alphvmm2xzrqazqfxsq7s3bqefmphfxmydixfmyakyf.onion/upload']",
+      "pattern_type": "stix",
+      "valid_from": "2026-05-28T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-007",
+          "description": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2d06952c-2152-4bb0-ab03-9d5a85e8f687",
+      "created": "2026-05-28T00:00:00Z",
+      "modified": "2026-05-28T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e36c918e-93ce-4313-b583-4296ee3f9cc4",
+      "target_ref": "threat-actor--c9ddec4d-5873-465e-8746-d571cd5c2e37",
+      "object_marking_refs": [
+        "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "FIN7",
+      "threat_actor_types": [
+        "cybercriminal"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e694870b-95f2-4a2b-8ecb-f0b3332a7c26",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1091",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1091",
+          "url": "https://attack.mitre.org/techniques/T1091"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--fc113d96-bb22-4873-b2d7-c96ab39d0f22",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1059.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--00ea3988-e31c-4532-b9c5-7905a1d95557",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1059.005",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.005",
+          "url": "https://attack.mitre.org/techniques/T1059/005"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--660bcdd2-02eb-499b-bf9d-a680e0a00ba9",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1055",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1055",
+          "url": "https://attack.mitre.org/techniques/T1055"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8e32b080-1478-413d-90af-c6e3d3e7d84e",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1105",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1105",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--14ec49ff-fb7f-4904-b5dd-f69401f729c6",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1071.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.001",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--488794b0-b561-45f4-8257-1f823eb03d5e",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "T1041",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1041",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a34ed2e6-0a48-42e5-8ad8-0eb5498bf9bd",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "DOMAIN: updates-cdn-service[.]com",
+      "description": "FIN7 POWERPLANT C2 domain \u2014 DNS TXT records used for command delivery",
+      "pattern": "[domain-name:value = 'updates-cdn-service[.]com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--15764fac-7fc8-460f-92cb-84ed7499136f",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--a34ed2e6-0a48-42e5-8ad8-0eb5498bf9bd",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--07991634-fad8-4103-a915-cb2fd2b051cc",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "DOMAIN: software-patch-delivery[.]net",
+      "description": "FIN7 DICELOADER staging domain",
+      "pattern": "[domain-name:value = 'software-patch-delivery[.]net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00a9a143-4a9c-4aa5-8652-560439201e8a",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--07991634-fad8-4103-a915-cb2fd2b051cc",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--aaa7beb2-83e2-462e-bea9-c07731dd527a",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "IP: 91.92.254.25",
+      "description": "FIN7 infrastructure \u2014 DICELOADER C2 server",
+      "pattern": "[ipv4-addr:value = '91.92.254.25']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d7b2f4a8-6bb8-4705-ae8f-166e3fc5132c",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--aaa7beb2-83e2-462e-bea9-c07731dd527a",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5873c55b-1fec-41f7-aab5-9d1e2de87dd0",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "SHA256: d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+      "description": "POWERPLANT PowerShell backdoor \u2014 delivered via USB autorun",
+      "pattern": "[file:hashes.SHA-256 = 'd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b89c8464-c7ac-438a-b3ce-94ed14dc2ad7",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--5873c55b-1fec-41f7-aab5-9d1e2de87dd0",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--92a43fe9-1f03-4d08-be62-8a59edb23e71",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "FILENAME: FlashDriveSetup.exe",
+      "description": "FIN7 USB dropper filename \u2014 BadUSB campaign targeting retail POS",
+      "pattern": "[file:name = 'FlashDriveSetup.exe']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64d32fe7-0e4d-40f6-be8e-3d15a115738e",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--92a43fe9-1f03-4d08-be62-8a59edb23e71",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--235d1034-92e9-4b75-830e-dad4b50059a3",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "name": "FILENAME: POWERPLANT.ps1",
+      "description": "FIN7 PowerShell C2 beacon script \u2014 obfuscated with base64 + XOR",
+      "pattern": "[file:name = 'POWERPLANT.ps1']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-02T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-008",
+          "description": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores"
+        }
+      ],
+      "valid_until": "2026-09-02T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8e4f4380-b290-40b8-bd76-63492f451891",
+      "created": "2026-06-02T00:00:00Z",
+      "modified": "2026-06-02T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--235d1034-92e9-4b75-830e-dad4b50059a3",
+      "target_ref": "threat-actor--029d104c-cde3-44b9-981a-401e96ecc491",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--ce346142-9a7b-4bc4-85af-c82f8cbf2c11",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "Volt Typhoon",
+      "threat_actor_types": [
+        "nation-state"
+      ],
+      "aliases": [],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--631c6bac-3c3a-4fa6-9062-cb81d4d940b2",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1190",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--38352149-3730-4795-bb2d-d7bb8a650845",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1078",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4f2c8c24-6803-4dc4-9f0e-95d0805cdb68",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1133",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1133",
+          "url": "https://attack.mitre.org/techniques/T1133"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--257a3740-43d4-476c-9e90-956542a8a29b",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1003.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.001",
+          "url": "https://attack.mitre.org/techniques/T1003/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--35438b48-4280-4b12-98ac-2d2bdbabd1bc",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1059.001",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--695ca40d-027d-4a61-a991-fa2ac88e25d5",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1105",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1105",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1849cb40-e486-494d-8c71-107e3b0b3305",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1090.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1090.002",
+          "url": "https://attack.mitre.org/techniques/T1090/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1920b168-17e8-44c6-8a99-fd60fb719462",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1018",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1018",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ed903d19-130a-4c47-960e-ed902660d439",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1049",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1049",
+          "url": "https://attack.mitre.org/techniques/T1049"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c7ad8fe6-d088-4ce7-b1c7-ec88ce5030eb",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "T1087.002",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1087.002",
+          "url": "https://attack.mitre.org/techniques/T1087/002"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--06f80044-968a-4642-bc70-092258767064",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "IP: 174.138.56.195",
+      "description": "Volt Typhoon SOHO router hop \u2014 compromised Cisco RV VPN device used as proxy",
+      "pattern": "[ipv4-addr:value = '174.138.56.195']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-10T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-009",
+          "description": "Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure"
+        }
+      ],
+      "valid_until": "2026-09-10T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b6de1d6-0f1b-4c23-b48d-38b774b11d1b",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--06f80044-968a-4642-bc70-092258767064",
+      "target_ref": "threat-actor--ce346142-9a7b-4bc4-85af-c82f8cbf2c11",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ad106e36-ab82-4df6-a520-37ff8424097f",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "IP: 167.248.133.56",
+      "description": "KV-botnet node \u2014 compromised SOHO device relaying Volt Typhoon traffic",
+      "pattern": "[ipv4-addr:value = '167.248.133.56']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-10T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-009",
+          "description": "Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure"
+        }
+      ],
+      "valid_until": "2026-09-10T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08328e1e-3caf-4123-b5bd-80059cf0c448",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ad106e36-ab82-4df6-a520-37ff8424097f",
+      "target_ref": "threat-actor--ce346142-9a7b-4bc4-85af-c82f8cbf2c11",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f4fbf378-c9ef-444f-9fe6-7999bb50b256",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "DOMAIN: vpn-secure-connect[.]org",
+      "description": "Volt Typhoon proxy infrastructure domain",
+      "pattern": "[domain-name:value = 'vpn-secure-connect[.]org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-10T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-009",
+          "description": "Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure"
+        }
+      ],
+      "valid_until": "2026-09-10T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c631f581-a3aa-4977-9177-c8bf149f4b1d",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--f4fbf378-c9ef-444f-9fe6-7999bb50b256",
+      "target_ref": "threat-actor--ce346142-9a7b-4bc4-85af-c82f8cbf2c11",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e8eb127d-4a1e-48a2-ab84-499d00f47677",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "name": "SHA256: b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2",
+      "description": "FRP reverse proxy binary \u2014 custom compiled for Volt Typhoon operations",
+      "pattern": "[file:hashes.SHA-256 = 'b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2']",
+      "pattern_type": "stix",
+      "valid_from": "2026-06-10T00:00:00Z",
+      "labels": [
+        "malicious-activity"
+      ],
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999",
+      "external_references": [
+        {
+          "source_name": "TIR-2026-009",
+          "description": "Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure"
+        }
+      ],
+      "valid_until": "2026-09-10T00:00:00Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f316432-3210-48c3-84f1-9c1f8e971a8d",
+      "created": "2026-06-10T00:00:00Z",
+      "modified": "2026-06-10T00:00:00Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e8eb127d-4a1e-48a2-ab84-499d00f47677",
+      "target_ref": "threat-actor--ce346142-9a7b-4bc4-85af-c82f8cbf2c11",
+      "object_marking_refs": [
+        "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82"
+      ],
+      "created_by_ref": "identity--6c1f999d-431d-4e8a-86c1-19a4ae5aa999"
+    }
+  ]
+}

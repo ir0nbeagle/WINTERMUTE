@@ -1,0 +1,33 @@
+name: Parse Hunt Metrics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hunts/**/LOCK.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run metrics parser
+        run: python3 -B scripts/parse_metrics.py
+
+      - name: Commit updated metrics
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add metrics/summary.json
+          git diff --cached --quiet || git commit -m "chore: update metrics summary [skip ci]"
+          git push

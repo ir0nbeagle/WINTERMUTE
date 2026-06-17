@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERMUTE — Intel Report</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;--orange:#ffa657;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1rem;font-weight:600}
+  header h1 span{color:var(--accent)}
+  .nav-link{font-size:.78rem;color:var(--text-muted);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px}
+  .nav-link:hover{color:var(--text);border-color:var(--accent)}
+  .layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;max-width:1400px;margin:0 auto;padding:1.5rem 2rem}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  .sidebar{display:flex;flex-direction:column;gap:1rem}
+  .meta-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .meta-card-title{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:.75rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2)}
+  .meta-row{padding:.5rem 1rem;border-bottom:1px solid var(--surface2)}
+  .meta-row:last-child{border-bottom:none}
+  .meta-label{font-size:.62rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+  .meta-value{font-size:.8rem;color:var(--text);font-weight:500;margin-top:.1rem}
+  .chip-wrap{display:flex;flex-wrap:wrap;gap:.3rem;padding:.5rem 1rem}
+  .chip{font-size:.68rem;padding:.15rem .45rem;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);font-family:monospace;text-decoration:none;display:inline-block}
+  .chip.tech{border-color:var(--accent);color:var(--accent);background:rgba(88,166,255,.06)}
+  .chip.actor{border-color:var(--orange);color:var(--orange);background:rgba(255,166,87,.06)}
+  .chip.tool{border-color:var(--purple);color:var(--purple);background:rgba(188,140,255,.06)}
+  .chip.hunt-link{border-color:var(--green);color:var(--green);background:rgba(63,185,80,.06)}
+  .tlp{font-size:.68rem;padding:.2rem .5rem;border-radius:4px;font-weight:600;display:inline-block}
+  .tlp-AMBER{background:rgba(210,153,34,.18);color:var(--yellow)}
+  .tlp-WHITE{background:var(--surface2);color:var(--text-muted)}
+  .tlp-GREEN{background:rgba(63,185,80,.12);color:var(--green)}
+  .tlp-RED{background:rgba(248,81,73,.15);color:var(--red)}
+  .badge{font-size:.68rem;padding:.2rem .5rem;border-radius:4px;font-weight:600;display:inline-block}
+  .status-hunt-created{background:rgba(63,185,80,.15);color:var(--green)}
+  .status-new{background:rgba(88,166,255,.12);color:var(--accent)}
+  .status-in-review{background:rgba(210,153,34,.15);color:var(--yellow)}
+  .md-body{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem 2rem;line-height:1.75}
+  .md-body h1,.md-body h2,.md-body h3{color:var(--text);margin:1.5rem 0 .75rem;font-weight:600}
+  .md-body h1{font-size:1.3rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+  .md-body h2{font-size:1.05rem;color:var(--text-muted)}
+  .md-body h3{font-size:.95rem}
+  .md-body p{color:var(--text-muted);margin-bottom:.85rem;font-size:.88rem}
+  .md-body ul,.md-body ol{padding-left:1.5rem;margin-bottom:.85rem;color:var(--text-muted);font-size:.88rem}
+  .md-body li{margin-bottom:.25rem}
+  .md-body code{background:var(--surface2);padding:.1rem .35rem;border-radius:3px;font-family:monospace;font-size:.82rem;color:var(--orange)}
+  .md-body pre{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1rem;overflow-x:auto;margin-bottom:1rem}
+  .md-body pre code{background:none;padding:0;color:var(--text);font-size:.8rem}
+  .md-body table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.82rem}
+  .md-body th{background:var(--surface2);padding:.5rem .75rem;text-align:left;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border)}
+  .md-body td{padding:.5rem .75rem;border:1px solid var(--border);color:var(--text-muted)}
+  .md-body strong{color:var(--text);font-weight:600}
+  .md-body hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+  .md-body a{color:var(--accent)}
+  #error{display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>WINTERMUTE</span> / <span id="breadcrumb">Intel Report</span></h1>
+  <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="queue.html" class="nav-link" style="color:var(--text);border-color:var(--accent)">Hunt Queue</a>
+    <a href="actors.html" class="nav-link">APT Tracker</a>
+    <a href="iocs.html" class="nav-link">IOCs</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="meta-card">
+      <div class="meta-card-title">Report Metadata</div>
+      <div id="meta-rows"></div>
+    </div>
+    <div class="meta-card" id="hunt-card" style="display:none">
+      <div class="meta-card-title">Linked Hunts</div>
+      <div class="chip-wrap" id="hunt-chips"></div>
+    </div>
+    <div class="meta-card" id="tech-card" style="display:none">
+      <div class="meta-card-title">ATT&amp;CK Techniques</div>
+      <div class="chip-wrap" id="tech-chips"></div>
+    </div>
+    <div class="meta-card" id="tool-card" style="display:none">
+      <div class="meta-card-title">Tools</div>
+      <div class="chip-wrap" id="tool-chips"></div>
+    </div>
+    <div class="meta-card" id="actor-card" style="display:none">
+      <div class="meta-card-title">Threat Actors</div>
+      <div class="chip-wrap" id="actor-chips"></div>
+    </div>
+  </aside>
+
+  <main>
+    <div id="error">Report not found. <a href="queue.html" style="color:var(--accent)">Back to queue</a></div>
+    <div class="md-body" id="report-body">Loading…</div>
+  </main>
+</div>
+
+<script>
+var params = new URLSearchParams(location.search);
+var reportId = params.get('id');
+
+function statusBadge(s) {
+  var map = {'hunt-created':'status-hunt-created','new':'status-new','in-review':'status-in-review'};
+  var label = {'hunt-created':'Hunt Created','new':'New','in-review':'In Review'};
+  return '<span class="badge ' + (map[s] || 'status-new') + '">' + (label[s] || s) + '</span>';
+}
+
+function metaRow(label, value) {
+  return '<div class="meta-row"><div class="meta-label">' + label + '</div><div class="meta-value">' + value + '</div></div>';
+}
+
+function load() {
+  if (!reportId) {
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('report-body').style.display = 'none';
+    return;
+  }
+
+  fetch('../metrics/summary.json')
+    .then(function(r){ return r.json(); })
+    .then(function(summary){
+      var reports = (summary.intel && summary.intel.reports) ? summary.intel.reports : [];
+      var report = null;
+      for (var i = 0; i < reports.length; i++) {
+        if (reports[i].id === reportId) { report = reports[i]; break; }
+      }
+      if (!report) {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('report-body').style.display = 'none';
+        return;
+      }
+
+      document.title = 'WINTERMUTE — ' + report.id;
+      document.getElementById('breadcrumb').textContent = report.id;
+
+      var tlpHtml = '<span class="tlp tlp-' + report.tlp + '">' + report.tlp + '</span>';
+
+      document.getElementById('meta-rows').innerHTML =
+        metaRow('Report ID', report.id) +
+        metaRow('Date', report.date) +
+        metaRow('Analyst', report.analyst || '—') +
+        metaRow('Priority', report.priority) +
+        metaRow('TLP', tlpHtml) +
+        metaRow('Status', statusBadge(report.status)) +
+        metaRow('IOC Count', report.ioc_count || 0);
+
+      if (report.linked_hunts && report.linked_hunts.length) {
+        document.getElementById('hunt-card').style.display = '';
+        document.getElementById('hunt-chips').innerHTML = report.linked_hunts.map(function(id){
+          return '<a href="hunt.html?id=' + id + '" class="chip hunt-link">' + id + '</a>';
+        }).join('');
+      }
+
+      if (report.techniques && report.techniques.length) {
+        document.getElementById('tech-card').style.display = '';
+        document.getElementById('tech-chips').innerHTML = report.techniques.map(function(t){
+          var url = 'https://attack.mitre.org/techniques/' + t.replace('.', '/');
+          return '<a href="' + url + '" target="_blank" class="chip tech">' + t + '</a>';
+        }).join('');
+      }
+
+      if (report.tools && report.tools.length) {
+        document.getElementById('tool-card').style.display = '';
+        document.getElementById('tool-chips').innerHTML = report.tools.map(function(t){
+          return '<span class="chip tool">' + t + '</span>';
+        }).join('');
+      }
+
+      if (report.threat_actors && report.threat_actors.length) {
+        document.getElementById('actor-card').style.display = '';
+        document.getElementById('actor-chips').innerHTML = report.threat_actors.map(function(a){
+          return '<a href="actors.html" class="chip actor">' + a + '</a>';
+        }).join('');
+      }
+
+      // Fetch the report markdown, strip YAML frontmatter, render
+      fetch('../threat-intel/' + report.folder + '/report.md')
+        .then(function(r){ return r.text(); })
+        .then(function(text){
+          var body = text.replace(/^---[\s\S]*?---\n?/, '');
+          document.getElementById('report-body').innerHTML = marked.parse(body);
+        })
+        .catch(function(){
+          document.getElementById('report-body').textContent = 'Could not load report.md';
+        });
+    })
+    .catch(function(e){
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').textContent = 'Error loading data: ' + e.message;
+      document.getElementById('report-body').style.display = 'none';
+    });
+}
+
+load();
+</script>
+</body>
+</html>

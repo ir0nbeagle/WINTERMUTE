@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERMUTE — Hunt Report</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;--orange:#ffa657;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1rem;font-weight:600}
+  header h1 span{color:var(--accent)}
+  .nav-link{font-size:.78rem;color:var(--text-muted);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px}
+  .nav-link:hover{color:var(--text);border-color:var(--accent)}
+  .layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;max-width:1400px;margin:0 auto;padding:1.5rem 2rem}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  .sidebar{display:flex;flex-direction:column;gap:1rem}
+  .meta-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .meta-card-title{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:.75rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2)}
+  .meta-row{padding:.5rem 1rem;border-bottom:1px solid var(--surface2)}
+  .meta-row:last-child{border-bottom:none}
+  .meta-label{font-size:.62rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+  .meta-value{font-size:.8rem;color:var(--text);font-weight:500;margin-top:.1rem}
+  .chip-wrap{display:flex;flex-wrap:wrap;gap:.3rem;padding:.5rem 1rem}
+  .chip{font-size:.68rem;padding:.15rem .45rem;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);font-family:monospace;text-decoration:none;display:inline-block}
+  .chip.tech{border-color:var(--accent);color:var(--accent);background:rgba(88,166,255,.06)}
+  .chip.actor{border-color:var(--orange);color:var(--orange);background:rgba(255,166,87,.06)}
+  .badge{font-size:.68rem;padding:.2rem .5rem;border-radius:4px;font-weight:600;display:inline-block}
+  .badge-tp{background:rgba(63,185,80,.15);color:var(--green)}
+  .badge-fp{background:rgba(248,81,73,.15);color:var(--red)}
+  .badge-nf{background:rgba(210,153,34,.15);color:var(--yellow)}
+  .badge-pending{background:rgba(139,148,158,.15);color:var(--text-muted)}
+  .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .tab{padding:.6rem 1.25rem;font-size:.82rem;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .tab:hover{color:var(--text)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  .md-body{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem 2rem;line-height:1.75}
+  .md-body h1,.md-body h2,.md-body h3{color:var(--text);margin:1.5rem 0 .75rem;font-weight:600}
+  .md-body h1{font-size:1.3rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+  .md-body h2{font-size:1.05rem;color:var(--text-muted)}
+  .md-body h3{font-size:.95rem}
+  .md-body p{color:var(--text-muted);margin-bottom:.85rem;font-size:.88rem}
+  .md-body ul,.md-body ol{padding-left:1.5rem;margin-bottom:.85rem;color:var(--text-muted);font-size:.88rem}
+  .md-body li{margin-bottom:.25rem}
+  .md-body code{background:var(--surface2);padding:.1rem .35rem;border-radius:3px;font-family:monospace;font-size:.82rem;color:var(--orange)}
+  .md-body pre{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1rem;overflow-x:auto;margin-bottom:1rem}
+  .md-body pre code{background:none;padding:0;color:var(--text);font-size:.8rem}
+  .md-body table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.82rem}
+  .md-body th{background:var(--surface2);padding:.5rem .75rem;text-align:left;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border)}
+  .md-body td{padding:.5rem .75rem;border:1px solid var(--border);color:var(--text-muted)}
+  .md-body strong{color:var(--text);font-weight:600}
+  .md-body hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+  .md-body a{color:var(--accent)}
+  #error{display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>WINTERMUTE</span> / <span id="breadcrumb">Hunt Report</span></h1>
+  <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="queue.html" class="nav-link">Hunt Queue</a>
+    <a href="actors.html" class="nav-link">APT Tracker</a>
+    <a href="iocs.html" class="nav-link">IOCs</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="meta-card">
+      <div class="meta-card-title">Hunt Metadata</div>
+      <div id="meta-rows"></div>
+    </div>
+    <div class="meta-card" id="tech-card" style="display:none">
+      <div class="meta-card-title">ATT&amp;CK Techniques</div>
+      <div class="chip-wrap" id="tech-chips"></div>
+    </div>
+    <div class="meta-card" id="actor-card" style="display:none">
+      <div class="meta-card-title">Threat Actors</div>
+      <div class="chip-wrap" id="actor-chips"></div>
+    </div>
+  </aside>
+
+  <main>
+    <div id="error">Hunt not found. <a href="queue.html" style="color:var(--accent)">Back to queue</a></div>
+    <div id="content">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(0)">LOCK Report</button>
+        <button class="tab" id="tab-cs" style="display:none" onclick="switchTab(1)">CrowdStrike Queries</button>
+        <button class="tab" id="tab-sec" style="display:none" onclick="switchTab(2)">Google SecOps</button>
+      </div>
+      <div class="tab-panel active" id="panel-0"><div class="md-body" id="lock-body">Loading…</div></div>
+      <div class="tab-panel" id="panel-1"><div class="md-body" id="cs-body"></div></div>
+      <div class="tab-panel" id="panel-2"><div class="md-body" id="sec-body"></div></div>
+    </div>
+  </main>
+</div>
+
+<script>
+var params = new URLSearchParams(location.search);
+var huntId = params.get('id');
+
+function switchTab(i) {
+  document.querySelectorAll('.tab').forEach(function(t, j){ t.classList.toggle('active', j===i); });
+  document.querySelectorAll('.tab-panel').forEach(function(p, j){ p.classList.toggle('active', j===i); });
+}
+
+function outcomeBadge(o) {
+  var map = {'True Positive':'badge-tp','False Positive':'badge-fp','No Findings':'badge-nf'};
+  return '<span class="badge ' + (map[o] || 'badge-pending') + '">' + (o || 'Pending') + '</span>';
+}
+
+function metaRow(label, value) {
+  return '<div class="meta-row"><div class="meta-label">' + label + '</div><div class="meta-value">' + value + '</div></div>';
+}
+
+function load() {
+  if (!huntId) {
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('content').style.display = 'none';
+    return;
+  }
+
+  fetch('../metrics/summary.json')
+    .then(function(r){ return r.json(); })
+    .then(function(summary){
+      var hunt = null;
+      for (var i = 0; i < summary.hunts.length; i++) {
+        if (summary.hunts[i].id === huntId) { hunt = summary.hunts[i]; break; }
+      }
+      if (!hunt) {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        return;
+      }
+
+      document.title = 'WINTERMUTE — ' + hunt.id;
+      document.getElementById('breadcrumb').textContent = hunt.id;
+
+      var detVal = hunt.converted_to_detection
+        ? '<span style="color:var(--green)">&#10003; Yes</span>'
+        : '<span style="color:var(--text-muted)">&#10007; No</span>';
+
+      document.getElementById('meta-rows').innerHTML =
+        metaRow('Hunt ID', hunt.id) +
+        metaRow('Status', hunt.status) +
+        metaRow('Priority', hunt.priority) +
+        metaRow('Outcome', outcomeBadge(hunt.outcome)) +
+        metaRow('Detection', detVal) +
+        metaRow('Detection Detail', hunt.detection_detail || '—') +
+        metaRow('Analyst', hunt.analyst || '—') +
+        metaRow('Date Created', hunt.date_created || '—') +
+        metaRow('Platform', hunt.platform || '—') +
+        metaRow('Source', hunt.source || '—');
+
+      if (hunt.techniques && hunt.techniques.length) {
+        document.getElementById('tech-card').style.display = '';
+        document.getElementById('tech-chips').innerHTML = hunt.techniques.map(function(t){
+          var url = 'https://attack.mitre.org/techniques/' + t.replace('.', '/');
+          return '<a href="' + url + '" target="_blank" class="chip tech">' + t + '</a>';
+        }).join('');
+      }
+
+      if (hunt.threat_actors && hunt.threat_actors.length) {
+        document.getElementById('actor-card').style.display = '';
+        document.getElementById('actor-chips').innerHTML = hunt.threat_actors.map(function(a){
+          return '<a href="actors.html" class="chip actor">' + a + '</a>';
+        }).join('');
+      }
+
+      var base = '../hunts/' + hunt.folder;
+
+      fetch(base + '/LOCK.md')
+        .then(function(r){ return r.text(); })
+        .then(function(md){ document.getElementById('lock-body').innerHTML = marked.parse(md); })
+        .catch(function(){ document.getElementById('lock-body').textContent = 'Could not load LOCK.md'; });
+
+      if (hunt.has_crowdstrike_queries) {
+        document.getElementById('tab-cs').style.display = '';
+        fetch(base + '/crowdstrike-queries.md')
+          .then(function(r){ return r.text(); })
+          .then(function(md){ document.getElementById('cs-body').innerHTML = marked.parse(md); });
+      }
+
+      if (hunt.has_secops_queries) {
+        document.getElementById('tab-sec').style.display = '';
+        fetch(base + '/google-secops-queries.md')
+          .then(function(r){ return r.text(); })
+          .then(function(md){ document.getElementById('sec-body').innerHTML = marked.parse(md); });
+      }
+    })
+    .catch(function(e){
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').textContent = 'Error loading data: ' + e.message;
+      document.getElementById('content').style.display = 'none';
+    });
+}
+
+load();
+</script>
+</body>
+</html>
