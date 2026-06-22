@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threat Hunting Program — Executive Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --orange: #ffa657;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header h1 { font-size: 1.1rem; font-weight: 600; letter-spacing: .02em; }
+  header h1 span { color: var(--accent); }
+  #generated-at { font-size: .75rem; color: var(--text-muted); }
+  .nav-link { font-size: .78rem; color: var(--text-muted); text-decoration: none; border: 1px solid var(--border); padding: .3rem .7rem; border-radius: 6px; }
+  .nav-link:hover { color: var(--text); border-color: var(--accent); }
+
+  main { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
+  section { margin-bottom: 2rem; }
+  section h2 { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
+
+  /* KPI cards */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--kpi-color, var(--accent));
+  }
+  .kpi-label { font-size: .7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
+  .kpi-value { font-size: 2rem; font-weight: 700; line-height: 1; }
+  .kpi-sub { font-size: .72rem; color: var(--text-muted); margin-top: .4rem; }
+
+  /* Charts grid */
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .charts-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .chart-card h3 { font-size: .8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+  .chart-card canvas { max-height: 220px; }
+
+  /* Table */
+  .table-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .table-card h3 { font-size: .8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .07em; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { font-size: .72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; padding: .6rem 1.25rem; text-align: left; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  tbody td { font-size: .82rem; padding: .6rem 1.25rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--surface2); }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: .15rem .5rem;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .badge-critical { background: rgba(248,81,73,.15); color: var(--red); }
+  .badge-high { background: rgba(255,166,87,.15); color: var(--orange); }
+  .badge-medium { background: rgba(210,153,34,.15); color: var(--yellow); }
+  .badge-pending { background: rgba(139,148,158,.15); color: var(--text-muted); }
+  .badge-tp { background: rgba(63,185,80,.15); color: var(--green); }
+  .badge-fp { background: rgba(248,81,73,.15); color: var(--red); }
+
+  /* Tech coverage bar */
+  .coverage-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surface2); margin: .5rem 0 1rem; }
+  .coverage-bar .fill { background: var(--accent); border-radius: 4px; }
+  .coverage-label { display: flex; justify-content: space-between; font-size: .72rem; color: var(--text-muted); }
+
+  /* Gaps list */
+  .gap-item { padding: .75rem 1.25rem; border-bottom: 1px solid var(--border); font-size: .82rem; }
+  .gap-item:last-child { border-bottom: none; }
+  .gap-item strong { color: var(--yellow); display: block; margin-bottom: .2rem; font-size: .75rem; }
+
+  .pill { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .6rem; border-radius: 20px; font-size: .7rem; font-weight: 600; }
+  .pill-green { background: rgba(63,185,80,.15); color: var(--green); }
+  .pill-red { background: rgba(248,81,73,.15); color: var(--red); }
+
+  @media (max-width: 900px) {
+    .charts-grid, .charts-grid.three { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>WINTERMUTE &mdash; <span>Executive Dashboard</span></h1>
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+    <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+      <a href="dashboard.html" class="nav-link" style="color:var(--text);border-color:var(--accent)">Dashboard</a>
+      <a href="queue.html" class="nav-link">Hunt Queue</a>
+      <a href="actors.html" class="nav-link">APT Tracker</a>
+      <a href="iocs.html" class="nav-link">IOCs</a>
+    </nav>
+    <div id="generated-at" style="font-size:.75rem;color:var(--text-muted)">Loading…</div>
+  </div>
+</header>
+
+<main>
+  <!-- KPI Row -->
+  <section>
+    <h2>Program Metrics</h2>
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </section>
+
+  <!-- Charts Row 1 -->
+  <section>
+    <h2>Hunt Analysis</h2>
+    <div class="charts-grid three">
+      <div class="chart-card">
+        <h3>Outcome Distribution</h3>
+        <canvas id="chart-outcomes"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Priority Breakdown</h3>
+        <canvas id="chart-priority"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>MITRE Tactic Coverage</h3>
+        <canvas id="chart-tactics"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITRE Coverage -->
+  <section>
+    <h2>MITRE ATT&amp;CK Coverage</h2>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Techniques with Hunts vs Detections</h3>
+        <div class="coverage-label">
+          <span id="cov-hunted-label">Hunted</span>
+          <span id="cov-detected-label">With Detection</span>
+        </div>
+        <div class="coverage-bar"><div class="fill" id="cov-bar" style="width:0%"></div></div>
+        <canvas id="chart-mitre-top" style="max-height:200px"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Top Techniques by Hunt Count</h3>
+        <canvas id="chart-techniques"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Threat Actors -->
+  <section>
+    <h2>Threat Actor Tracking</h2>
+    <div class="table-card">
+      <h3 style="display:flex;justify-content:space-between;align-items:center">Tracked Actors <a href="actors.html" style="font-size:.75rem;color:var(--accent);text-decoration:none;text-transform:none;letter-spacing:0;font-weight:400">View APT Tracker →</a></h3>
+      <table>
+        <thead><tr>
+          <th>Actor</th>
+          <th>Hunts</th>
+          <th>Techniques</th>
+          <th>Detections Created</th>
+          <th>Coverage</th>
+        </tr></thead>
+        <tbody id="actor-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Hunt Log -->
+  <section>
+    <h2>Hunt Log</h2>
+    <div class="table-card">
+      <h3 style="display:flex;justify-content:space-between;align-items:center">All Hunts <a href="queue.html" style="font-size:.75rem;color:var(--accent);text-decoration:none;text-transform:none;letter-spacing:0;font-weight:400">View Hunt Queue →</a></h3>
+      <table>
+        <thead><tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Outcome</th>
+          <th>Detection</th>
+          <th>Actors</th>
+          <th>Techniques</th>
+        </tr></thead>
+        <tbody id="hunts-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Visibility Gaps -->
+  <section>
+    <h2>Visibility Gaps Found</h2>
+    <div class="table-card" id="gaps-container"></div>
+  </section>
+</main>
+
+<script>
+const SUMMARY_PATH = '../metrics/summary.json';
+
+const PALETTE = ['#58a6ff','#3fb950','#ffa657','#bc8cff','#f85149','#d29922','#79c0ff','#56d364','#ffb77c','#d2a8ff'];
+
+function priorityBadge(p) {
+  const cls = { Critical: 'badge-critical', High: 'badge-high', Medium: 'badge-medium' }[p] || 'badge-pending';
+  return `<span class="badge ${cls}">${p}</span>`;
+}
+function outcomeBadge(o) {
+  if (o === 'True Positive') return `<span class="badge badge-tp">${o}</span>`;
+  if (o === 'False Positive') return `<span class="badge badge-fp">${o}</span>`;
+  if (o === 'No Findings') return `<span class="badge badge-medium">${o}</span>`;
+  return `<span class="badge badge-pending">${o}</span>`;
+}
+function pill(yes) {
+  return yes
+    ? `<span class="pill pill-green">✓ Yes</span>`
+    : `<span class="pill pill-red">✗ No</span>`;
+}
+
+async function loadData() {
+  const res = await fetch(SUMMARY_PATH);
+  if (!res.ok) throw new Error('Could not load summary.json — run parse_metrics.py first.');
+  return res.json();
+}
+
+function renderKPIs(t) {
+  const items = [
+    { label: 'Total Hunts', value: t.hunts, sub: 'All time', color: 'var(--accent)' },
+    { label: 'Completed', value: t.completed_hunts, sub: `${t.hunts - t.completed_hunts} pending`, color: 'var(--green)' },
+    { label: 'True Positives', value: t.true_positives, sub: `${t.true_positive_rate}% of completed`, color: 'var(--orange)' },
+    { label: 'Detections Created', value: t.detections_created, sub: `${t.hunt_to_detection_rate}% conversion`, color: 'var(--purple)' },
+    { label: 'ATT&CK Techniques', value: t.unique_techniques_covered, sub: 'Across all hunts', color: 'var(--accent)' },
+    { label: 'Threat Actors', value: t.threat_actors_tracked, sub: 'Actively tracked', color: 'var(--red)' },
+    { label: 'Visibility Gaps', value: t.visibility_gaps_found, sub: 'Identified for remediation', color: 'var(--yellow)' },
+  ];
+  document.getElementById('kpi-grid').innerHTML = items.map(i => `
+    <div class="kpi" style="--kpi-color:${i.color}">
+      <div class="kpi-label">${i.label}</div>
+      <div class="kpi-value">${i.value}</div>
+      <div class="kpi-sub">${i.sub}</div>
+    </div>`).join('');
+}
+
+function makeChart(id, type, labels, datasets, opts = {}) {
+  const ctx = document.getElementById(id).getContext('2d');
+  return new Chart(ctx, {
+    type,
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { labels: { color: '#8b949e', font: { size: 11 } } },
+        ...opts.plugins
+      },
+      scales: type === 'bar' || type === 'horizontalBar' ? {
+        x: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { color: '#30363d' } },
+        y: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { color: '#30363d' } },
+        ...opts.scales
+      } : {},
+      ...opts
+    }
+  });
+}
+
+function renderCharts(data) {
+  const { outcome_distribution, priority_distribution, tactic_distribution, technique_coverage, totals } = data;
+
+  // Outcomes donut
+  const outLabels = Object.keys(outcome_distribution);
+  const outColors = outLabels.map(l => ({
+    'True Positive': '#3fb950', 'False Positive': '#f85149',
+    'No Findings': '#d29922', 'Pending': '#8b949e', 'Inconclusive': '#bc8cff'
+  }[l] || '#58a6ff'));
+  makeChart('chart-outcomes', 'doughnut', outLabels,
+    [{ data: Object.values(outcome_distribution), backgroundColor: outColors, borderWidth: 0 }],
+    { plugins: { legend: { position: 'bottom', labels: { color: '#8b949e', font: { size: 10 }, padding: 10 } } }, cutout: '65%' }
+  );
+
+  // Priority donut
+  const priLabels = Object.keys(priority_distribution);
+  const priColors = priLabels.map(l => ({ Critical: '#f85149', High: '#ffa657', Medium: '#d29922' }[l] || '#58a6ff'));
+  makeChart('chart-priority', 'doughnut', priLabels,
+    [{ data: Object.values(priority_distribution), backgroundColor: priColors, borderWidth: 0 }],
+    { plugins: { legend: { position: 'bottom', labels: { color: '#8b949e', font: { size: 10 }, padding: 10 } } }, cutout: '65%' }
+  );
+
+  // Tactic bar — normalize "Command & Control" vs "Command and Control"
+  const tacNorm = {};
+  for (const [k, v] of Object.entries(tactic_distribution)) {
+    const key = k.replace('&', 'and').replace('Command and Control', 'C2');
+    tacNorm[key] = (tacNorm[key] || 0) + v;
+  }
+  const tacSorted = Object.entries(tacNorm).sort((a, b) => b[1] - a[1]);
+  makeChart('chart-tactics', 'bar',
+    tacSorted.map(e => e[0]),
+    [{ label: 'Hunts', data: tacSorted.map(e => e[1]), backgroundColor: '#58a6ff99', borderColor: '#58a6ff', borderWidth: 1 }],
+    { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }, y: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { color: '#30363d' } } } }
+  );
+
+  // MITRE coverage bar
+  const allTech = Object.keys(technique_coverage);
+  const withDetection = allTech.filter(t => technique_coverage[t].has_detection);
+  const covPct = totals.unique_techniques_covered; // raw count shown in KPI
+  document.getElementById('cov-hunted-label').textContent = `${allTech.length} techniques hunted`;
+  document.getElementById('cov-detected-label').textContent = `${withDetection.length} have detections`;
+  const pct = allTech.length ? Math.round(withDetection.length / allTech.length * 100) : 0;
+  document.getElementById('cov-bar').style.width = pct + '%';
+
+  // Top 10 techniques by hunt count
+  const techSorted = Object.entries(technique_coverage)
+    .map(([id, v]) => ({ id, count: v.hunts.length, detected: v.has_detection }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 10);
+  makeChart('chart-techniques', 'bar',
+    techSorted.map(t => t.id),
+    [
+      { label: 'Hunted', data: techSorted.map(t => t.count), backgroundColor: '#58a6ff99', borderColor: '#58a6ff', borderWidth: 1 },
+      { label: 'Has Detection', data: techSorted.map(t => t.detected ? t.count : 0), backgroundColor: '#3fb95099', borderColor: '#3fb950', borderWidth: 1 }
+    ],
+    { plugins: { legend: { labels: { color: '#8b949e', font: { size: 10 } } } }, scales: { x: { ticks: { color: '#8b949e', font: { size: 9 } }, grid: { color: '#30363d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' }, beginAtZero: true } } }
+  );
+
+  // MITRE overview chart (hunted vs detected totals)
+  const mitrePct = allTech.length ? Math.round(allTech.length / 200 * 100) : 0; // ~200 ATT&CK techniques as denominator
+  makeChart('chart-mitre-top', 'bar',
+    ['Total ATT&CK (est.)', 'Techniques Hunted', 'With Detections'],
+    [{ data: [200, allTech.length, withDetection.length], backgroundColor: ['#30363d', '#58a6ff99', '#3fb95099'], borderColor: ['#30363d', '#58a6ff', '#3fb950'], borderWidth: 1 }],
+    { plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { color: '#30363d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' }, beginAtZero: true } } }
+  );
+}
+
+function renderActors(actors) {
+  const tbody = document.getElementById('actor-tbody');
+  const rows = Object.entries(actors).sort((a, b) => b[1].hunts.length - a[1].hunts.length);
+  tbody.innerHTML = rows.map(([actor, data]) => {
+    const techCount = data.techniques.length;
+    const huntCount = data.hunts.length;
+    const barW = Math.min(100, huntCount / 10 * 100);
+    return `<tr style="cursor:pointer" onclick="location.href='actors.html'">
+      <td><a href="actors.html" style="color:var(--accent);text-decoration:none;font-weight:600">${actor}</a></td>
+      <td>${huntCount}</td>
+      <td>${techCount}</td>
+      <td>${pill(data.detections > 0)} ${data.detections > 0 ? `(${data.detections})` : ''}</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div style="flex:1;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden">
+            <div style="width:${barW}%;height:100%;background:var(--accent);border-radius:3px"></div>
+          </div>
+          <span style="font-size:.72rem;color:var(--text-muted);min-width:30px">${huntCount}</span>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function renderHunts(hunts) {
+  const tbody = document.getElementById('hunts-tbody');
+  tbody.innerHTML = hunts.map(h => `<tr style="cursor:pointer" onclick="location.href='queue.html'">
+    <td><a href="queue.html" style="font-family:monospace;font-size:.75rem;color:var(--accent);text-decoration:none">${h.id}</a></td>
+    <td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${h.title}">${h.title}</td>
+    <td>${priorityBadge(h.priority)}</td>
+    <td>${outcomeBadge(h.outcome)}</td>
+    <td>${pill(h.converted_to_detection)}</td>
+    <td style="font-size:.75rem;color:var(--text-muted)">${(h.threat_actors || []).join(', ') || '—'}</td>
+    <td style="font-size:.75rem;color:var(--text-muted)">${(h.techniques || []).slice(0,3).join(', ')}${h.techniques.length > 3 ? ` +${h.techniques.length - 3}` : ''}</td>
+  </tr>`).join('');
+}
+
+function renderGaps(gaps) {
+  const container = document.getElementById('gaps-container');
+  if (!gaps.length) {
+    container.innerHTML = '<div class="gap-item" style="color:var(--text-muted)">No visibility gaps recorded yet.</div>';
+    return;
+  }
+  container.innerHTML = '<h3>Visibility Gaps</h3>' + gaps.map(g => `
+    <div class="gap-item">
+      <strong>${g.hunt}</strong>
+      ${g.detail || 'No detail recorded.'}
+    </div>`).join('');
+}
+
+async function init() {
+  try {
+    const data = await loadData();
+    document.getElementById('generated-at').textContent =
+      'Generated: ' + new Date(data.generated_at).toLocaleString();
+    renderKPIs(data.totals);
+    renderCharts(data);
+    renderActors(data.threat_actors);
+    renderHunts(data.hunts);
+    renderGaps(data.visibility_gaps);
+  } catch (e) {
+    document.querySelector('main').innerHTML = `
+      <div style="padding:2rem;color:var(--red);background:var(--surface);border-radius:8px;border:1px solid var(--border);margin-top:2rem">
+        <strong>Error loading dashboard:</strong> ${e.message}<br><br>
+        Run <code>python3 -B scripts/parse_metrics.py</code> from the repo root to generate <code>metrics/summary.json</code>.
+      </div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
