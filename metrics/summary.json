@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T12:56:04.175416+00:00",
+  "generated_at": "2026-06-29T17:22:32.263839+00:00",
   "totals": {
     "hunts": 10,
     "completed_hunts": 8,
@@ -655,23 +655,498 @@
   ],
   "intel": {
     "totals": {
-      "reports": 0,
-      "queued": 0,
-      "converted_to_hunt": 0,
+      "reports": 9,
+      "queued": 3,
+      "converted_to_hunt": 6,
       "no_hunt": 0,
       "monitoring": 0,
-      "report_to_hunt_rate": 0,
-      "actors_tracked": 0,
-      "techniques_identified": 0,
-      "tools_identified": 0,
-      "total_iocs": 0,
-      "ttp_gap_count": 0
+      "report_to_hunt_rate": 66.7,
+      "actors_tracked": 10,
+      "techniques_identified": 50,
+      "tools_identified": 39,
+      "total_iocs": 52,
+      "ttp_gap_count": 21
     },
-    "status_distribution": {},
-    "actors_tracked": [],
-    "techniques_identified": [],
-    "tools_identified": [],
-    "ttp_gap": [],
-    "reports": []
+    "status_distribution": {
+      "hunt-created": 6,
+      "new": 2,
+      "in-review": 1
+    },
+    "actors_tracked": [
+      "Akira Ransomware",
+      "BlackCat/ALPHV",
+      "FIN7",
+      "Glassworm",
+      "LockBit 3.0",
+      "Malicious Insider \u2014 Departing Employee",
+      "Scattered Spider",
+      "TeamPCP",
+      "Unknown Supply Chain Actor",
+      "Volt Typhoon"
+    ],
+    "techniques_identified": [
+      "T1003.001",
+      "T1003.002",
+      "T1018",
+      "T1021.001",
+      "T1021.002",
+      "T1027",
+      "T1027.010",
+      "T1041",
+      "T1048.003",
+      "T1049",
+      "T1055",
+      "T1056.001",
+      "T1059.001",
+      "T1059.005",
+      "T1059.006",
+      "T1059.007",
+      "T1071.001",
+      "T1074.001",
+      "T1078",
+      "T1078.002",
+      "T1082",
+      "T1083",
+      "T1087.002",
+      "T1090.002",
+      "T1091",
+      "T1105",
+      "T1112",
+      "T1133",
+      "T1135",
+      "T1190",
+      "T1195.001",
+      "T1195.002",
+      "T1219",
+      "T1484.001",
+      "T1486",
+      "T1490",
+      "T1491.002",
+      "T1528",
+      "T1530",
+      "T1539",
+      "T1552",
+      "T1556.006",
+      "T1560.001",
+      "T1562.001",
+      "T1566.004",
+      "T1567.002",
+      "T1570",
+      "T1598.004",
+      "T1610",
+      "T1621"
+    ],
+    "tools_identified": [
+      "7-Zip",
+      "AdFind",
+      "Akira Encryptor (Linux/Windows)",
+      "AlphV Encryptor (Rust)",
+      "AnyDesk",
+      "Atera",
+      "BIRDWATCH",
+      "Carbanak Framework",
+      "Cobalt Strike",
+      "DICELOADER",
+      "Dropbox Client",
+      "Earthworm",
+      "EvilGinx2",
+      "FRP (Fast Reverse Proxy)",
+      "Impacket",
+      "LOLBins (various)",
+      "LockBit 3.0 Encryptor",
+      "Malicious PyPI Package",
+      "Mega.nz Browser Upload",
+      "Mimikatz",
+      "Netscan",
+      "NirSoft Network Password Recovery",
+      "Okta Admin Console (abused)",
+      "POWERPLANT",
+      "PowerShell Empire",
+      "PsExec",
+      "RClone",
+      "ScreenConnect",
+      "Solana RPC API",
+      "Splashtop",
+      "StealBit",
+      "Telegram",
+      "TinyMet",
+      "Trojanized Docker Image",
+      "Typosquatted npm Package",
+      "Unicode PUA steganography",
+      "WinSCP",
+      "eval(Buffer.from())",
+      "requests (abused)"
+    ],
+    "ttp_gap": [
+      "T1018",
+      "T1021.001",
+      "T1027.010",
+      "T1049",
+      "T1055",
+      "T1059.001",
+      "T1059.005",
+      "T1059.007",
+      "T1078.002",
+      "T1082",
+      "T1083",
+      "T1087.002",
+      "T1090.002",
+      "T1091",
+      "T1105",
+      "T1135",
+      "T1190",
+      "T1484.001",
+      "T1491.002",
+      "T1556.006",
+      "T1598.004"
+    ],
+    "reports": [
+      {
+        "id": "TIR-2026-001",
+        "folder": "TIR-2026-001-Glassworm-Unicode-Supply-Chain",
+        "title": "Glassworm: Invisible Unicode Supply Chain Attack",
+        "date": "2026-03-18",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0001"
+        ],
+        "threat_actors": [
+          "Glassworm"
+        ],
+        "techniques": [
+          "T1195.001",
+          "T1059.007",
+          "T1027",
+          "T1027.010",
+          "T1552",
+          "T1528",
+          "T1071.001"
+        ],
+        "tools": [
+          "Unicode PUA steganography",
+          "eval(Buffer.from())",
+          "Solana RPC API"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "domain",
+          "unicode-range",
+          "package",
+          "regex",
+          "filename"
+        ]
+      },
+      {
+        "id": "TIR-2026-002",
+        "folder": "TIR-2026-002-LockBit-3-Healthcare-Targeting",
+        "title": "LockBit 3.0 Accelerated Healthcare Sector Targeting",
+        "date": "2026-04-05",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0030"
+        ],
+        "threat_actors": [
+          "LockBit 3.0"
+        ],
+        "techniques": [
+          "T1021.002",
+          "T1570",
+          "T1486",
+          "T1490",
+          "T1562.001",
+          "T1078"
+        ],
+        "tools": [
+          "PsExec",
+          "LockBit 3.0 Encryptor",
+          "StealBit",
+          "NirSoft Network Password Recovery"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "sha256",
+          "filename",
+          "domain",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-003",
+        "folder": "TIR-2026-003-Insider-Threat-Pre-Departure-Exfil",
+        "title": "Insider Threat: Pre-Departure Data Exfiltration Behavioral Patterns",
+        "date": "2026-04-12",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "High",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0031",
+          "H-0034",
+          "H-0037"
+        ],
+        "threat_actors": [
+          "Malicious Insider \u2014 Departing Employee"
+        ],
+        "techniques": [
+          "T1074.001",
+          "T1560.001",
+          "T1567.002",
+          "T1048.003",
+          "T1528",
+          "T1078",
+          "T1530"
+        ],
+        "tools": [
+          "7-Zip",
+          "Dropbox Client",
+          "Mega.nz Browser Upload",
+          "WinSCP"
+        ],
+        "ioc_count": 4,
+        "ioc_types": [
+          "domain",
+          "regex"
+        ]
+      },
+      {
+        "id": "TIR-2026-004",
+        "folder": "TIR-2026-004-Akira-Ransomware-RMM-Playbook",
+        "title": "Akira Ransomware: RMM Tool Abuse and Pre-Encryption Playbook",
+        "date": "2026-05-16",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0038"
+        ],
+        "threat_actors": [
+          "Akira Ransomware"
+        ],
+        "techniques": [
+          "T1219",
+          "T1486",
+          "T1490",
+          "T1112",
+          "T1562.001",
+          "T1059.001",
+          "T1021.001"
+        ],
+        "tools": [
+          "AnyDesk",
+          "Splashtop",
+          "Atera",
+          "Akira Encryptor (Linux/Windows)",
+          "PowerShell Empire"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "sha256",
+          "filename",
+          "domain",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-005",
+        "folder": "TIR-2026-005-Supply-Chain-AIML-Targeting",
+        "title": "Supply Chain Targeting of the AI/ML Developer Ecosystem",
+        "date": "2026-04-20",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "High",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0029",
+          "H-0032",
+          "H-0035"
+        ],
+        "threat_actors": [
+          "TeamPCP",
+          "Unknown Supply Chain Actor"
+        ],
+        "techniques": [
+          "T1195.001",
+          "T1195.002",
+          "T1059.006",
+          "T1056.001",
+          "T1041",
+          "T1552",
+          "T1027",
+          "T1610"
+        ],
+        "tools": [
+          "Malicious PyPI Package",
+          "Typosquatted npm Package",
+          "Trojanized Docker Image",
+          "requests (abused)"
+        ],
+        "ioc_count": 8,
+        "ioc_types": [
+          "package",
+          "sha256",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-006",
+        "folder": "TIR-2026-006-Scattered-Spider-Identity-Attack",
+        "title": "Scattered Spider: Identity-Centric Attack Campaign \u2014 MFA Fatigue and Vishing",
+        "date": "2026-05-08",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "hunt-created",
+        "linked_hunts": [
+          "H-0036"
+        ],
+        "threat_actors": [
+          "Scattered Spider"
+        ],
+        "techniques": [
+          "T1621",
+          "T1566.004",
+          "T1078",
+          "T1133",
+          "T1539",
+          "T1556.006",
+          "T1598.004"
+        ],
+        "tools": [
+          "EvilGinx2",
+          "Okta Admin Console (abused)",
+          "Telegram",
+          "ScreenConnect"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "domain",
+          "email",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-007",
+        "folder": "TIR-2026-007-BlackCat-ALPHV-Comeback-Campaign",
+        "title": "BlackCat/ALPHV Comeback: Infrastructure Reboot Post-Law-Enforcement Disruption",
+        "date": "2026-05-28",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "new",
+        "linked_hunts": [],
+        "threat_actors": [
+          "BlackCat/ALPHV"
+        ],
+        "techniques": [
+          "T1003.001",
+          "T1003.002",
+          "T1078.002",
+          "T1484.001",
+          "T1021.002",
+          "T1082",
+          "T1135",
+          "T1083",
+          "T1486",
+          "T1491.002"
+        ],
+        "tools": [
+          "Mimikatz",
+          "Cobalt Strike",
+          "AdFind",
+          "Netscan",
+          "RClone",
+          "AlphV Encryptor (Rust)"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "domain",
+          "sha256",
+          "url",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-008",
+        "folder": "TIR-2026-008-FIN7-POS-Retail-Resurgence",
+        "title": "FIN7 Retail and POS Resurgence: USB BadUSB Campaign Targeting Physical Stores",
+        "date": "2026-06-02",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "High",
+        "status": "in-review",
+        "linked_hunts": [],
+        "threat_actors": [
+          "FIN7"
+        ],
+        "techniques": [
+          "T1091",
+          "T1059.001",
+          "T1059.005",
+          "T1055",
+          "T1105",
+          "T1071.001",
+          "T1041"
+        ],
+        "tools": [
+          "POWERPLANT",
+          "DICELOADER",
+          "Carbanak Framework",
+          "TinyMet",
+          "BIRDWATCH"
+        ],
+        "ioc_count": 6,
+        "ioc_types": [
+          "domain",
+          "filename",
+          "sha256",
+          "ip"
+        ]
+      },
+      {
+        "id": "TIR-2026-009",
+        "folder": "TIR-2026-009-Volt-Typhoon-Critical-Infrastructure",
+        "title": "Volt Typhoon: Living-off-the-Land Pre-Positioning in Critical Infrastructure",
+        "date": "2026-06-10",
+        "analyst": "ir0n",
+        "tlp": "AMBER",
+        "priority": "Critical",
+        "status": "new",
+        "linked_hunts": [],
+        "threat_actors": [
+          "Volt Typhoon"
+        ],
+        "techniques": [
+          "T1190",
+          "T1078",
+          "T1133",
+          "T1003.001",
+          "T1059.001",
+          "T1105",
+          "T1090.002",
+          "T1018",
+          "T1049",
+          "T1087.002"
+        ],
+        "tools": [
+          "Impacket",
+          "FRP (Fast Reverse Proxy)",
+          "Earthworm",
+          "LOLBins (various)"
+        ],
+        "ioc_count": 4,
+        "ioc_types": [
+          "domain",
+          "sha256",
+          "ip"
+        ]
+      }
+    ]
   }
 }

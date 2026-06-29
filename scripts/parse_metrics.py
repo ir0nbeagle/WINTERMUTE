@@ -255,7 +255,10 @@ INTEL_DIR = REPO_ROOT / "threat-intel"
 
 def parse_report(report_path: Path) -> dict | None:
     if not YAML_AVAILABLE:
-        return None
+        raise RuntimeError(
+            "PyYAML is required to parse YAML frontmatter but is not installed. "
+            "Install it with `pip install -r requirements.txt` before running this script."
+        )
     text = report_path.read_text(encoding="utf-8")
     import re as _re
     m = _re.match(r"^---\n(.*?)\n---", text, _re.DOTALL)
