@@ -133,7 +133,7 @@ function renderRow(r){
     <td><span class="type-badge ${tc}">${r.ioc_type}</span></td>
     <td class="ioc-val">${r.ioc_value}</td>
     <td style="color:var(--text-muted);max-width:260px;font-size:.72rem">${r.context}</td>
-    <td><a href="queue.html" style="color:var(--accent);font-size:.72rem;text-decoration:none">${r.report_id}</a></td>
+    <td><a href="intel.html?id=${r.report_id}" style="color:var(--accent);font-size:.72rem;text-decoration:none">${r.report_id}</a></td>
     <td style="font-size:.72rem;color:var(--text-muted)">${r.threat_actors||''}</td>
     <td><span class="tlp tlp-${r.tlp}">${r.tlp}</span></td>
     <td style="font-size:.72rem;color:var(--text-muted)">${r.expires||'—'}</td>

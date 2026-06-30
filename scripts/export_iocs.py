@@ -293,14 +293,9 @@ def build_csv(reports: list[dict]) -> list[dict]:
 
 
 def main():
-    if not INTEL_DIR.exists():
-        print(f"No threat-intel/ directory at {INTEL_DIR}")
-        return
-
-    reports = load_reports()
+    reports = load_reports() if INTEL_DIR.exists() else []
     if not reports:
-        print("No reports found.")
-        return
+        print("No reports found; writing empty exports")
 
     EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
 

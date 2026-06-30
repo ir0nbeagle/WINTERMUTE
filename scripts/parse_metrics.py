@@ -194,18 +194,17 @@ def compute_summary(hunts: list[dict]) -> dict:
 
 
 def main():
-    if not HUNTS_DIR.exists():
-        print(f"No hunts/ directory found at {HUNTS_DIR}")
-        return
-
     hunts = []
-    for lock_file in sorted(HUNTS_DIR.rglob("LOCK.md")):
-        try:
-            hunt = parse_lock(lock_file)
-            hunts.append(hunt)
-            print(f"  Parsed: {hunt['id']} ({hunt['outcome']})")
-        except Exception as e:
-            print(f"  ERROR parsing {lock_file}: {e}")
+    if HUNTS_DIR.exists():
+        for lock_file in sorted(HUNTS_DIR.rglob("LOCK.md")):
+            try:
+                hunt = parse_lock(lock_file)
+                hunts.append(hunt)
+                print(f"  Parsed: {hunt['id']} ({hunt['outcome']})")
+            except Exception as e:
+                print(f"  ERROR parsing {lock_file}: {e}")
+    else:
+        print(f"No hunts/ directory found at {HUNTS_DIR}; parsing intel reports only")
 
     # Parse threat intel reports
     reports = []
