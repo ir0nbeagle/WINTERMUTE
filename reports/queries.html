@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERMUTE — Detection Query Library</title>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;--orange:#ffa657;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1rem;font-weight:600;white-space:nowrap}
+  header h1 span{color:var(--accent)}
+  .nav-link{font-size:.78rem;color:var(--text-muted);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px}
+  .nav-link:hover{color:var(--text);border-color:var(--accent)}
+  main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto}
+  section{margin-bottom:2rem}
+  section h2{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+  .intro{font-size:.82rem;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;max-width:70ch}
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:2rem}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;position:relative;overflow:hidden}
+  .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kpi-color,var(--accent))}
+  .kpi-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+  .kpi-value{font-size:1.8rem;font-weight:700;line-height:1}
+  .kpi-sub{font-size:.7rem;color:var(--text-muted);margin-top:.3rem}
+  .filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center}
+  .filter-row label{font-size:.75rem;color:var(--text-muted)}
+  .filter-row select,.filter-row input{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:.35rem .6rem;border-radius:6px;font-size:.78rem}
+  .filter-row input[type=text]{width:240px}
+  .check{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--text-muted);cursor:pointer;user-select:none}
+  .check input{accent-color:var(--accent)}
+  #count-label{font-size:.75rem;color:var(--text-muted);margin-left:auto}
+  .cards{display:flex;flex-direction:column;gap:1rem}
+  .qcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .qcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:.85rem 1.1rem;border-bottom:1px solid var(--border);background:var(--surface2);flex-wrap:wrap}
+  .qcard-title{font-size:.9rem;font-weight:600;color:var(--text)}
+  .qcard-sub{font-size:.72rem;color:var(--text-muted);margin-top:.25rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+  .qcard-sub a{color:var(--accent);text-decoration:none}
+  .qcard-sub a:hover{text-decoration:underline}
+  .plat{font-size:.65rem;padding:.15rem .5rem;border-radius:4px;font-weight:600;white-space:nowrap;border:1px solid}
+  .plat-crowdstrike{background:rgba(248,81,73,.12);color:var(--red);border-color:rgba(248,81,73,.3)}
+  .plat-secops{background:rgba(88,166,255,.12);color:var(--accent);border-color:rgba(88,166,255,.3)}
+  .plat-splunk{background:rgba(63,185,80,.12);color:var(--green);border-color:rgba(63,185,80,.3)}
+  .plat-sentinel{background:rgba(88,166,255,.12);color:var(--accent);border-color:rgba(88,166,255,.3)}
+  .plat-other{background:var(--surface);color:var(--text-muted);border-color:var(--border)}
+  .lang-tag{font-size:.62rem;font-family:monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+  .chip{font-size:.66rem;padding:.12rem .4rem;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);font-family:monospace;text-decoration:none;display:inline-block}
+  .chip.tech{border-color:rgba(88,166,255,.4);color:var(--accent);background:rgba(88,166,255,.06)}
+  .chip.actor{border-color:rgba(255,166,87,.4);color:var(--orange);background:rgba(255,166,87,.06)}
+  .badge{font-size:.62rem;padding:.15rem .45rem;border-radius:4px;font-weight:600;white-space:nowrap}
+  .badge-det{background:rgba(63,185,80,.15);color:var(--green)}
+  .badge-pull{background:rgba(210,153,34,.15);color:var(--yellow)}
+  .qcard-note{font-size:.75rem;color:var(--text-muted);padding:.6rem 1.1rem 0;font-style:italic}
+  .qcode-wrap{position:relative}
+  .copy-btn{position:absolute;top:.6rem;right:.6rem;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:.68rem;padding:.25rem .6rem;border-radius:5px;cursor:pointer;z-index:2}
+  .copy-btn:hover{color:var(--text);border-color:var(--accent)}
+  .copy-btn.copied{color:var(--green);border-color:var(--green)}
+  pre.qcode{margin:.9rem 1.1rem 1.1rem;background:#0a0d12;border:1px solid var(--border);border-radius:6px;padding:1rem 1.1rem;overflow-x:auto;max-height:420px}
+  pre.qcode code{font-family:'SF Mono','Consolas','Courier New',monospace;font-size:.78rem;line-height:1.55;color:var(--text);white-space:pre}
+  .meta-tags{display:flex;gap:.3rem;flex-wrap:wrap;padding:.6rem 1.1rem 0}
+  #empty{display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2.5rem;color:var(--text-muted);text-align:center;font-size:.85rem}
+  #empty code{background:var(--surface2);padding:.1rem .4rem;border-radius:3px;color:var(--orange);font-size:.8rem}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>WINTERMUTE</span> / Detection Query Library</h1>
+  <nav style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="queue.html" class="nav-link">Hunt Queue</a>
+    <a href="actors.html" class="nav-link">APT Tracker</a>
+    <a href="iocs.html" class="nav-link">IOCs</a>
+    <a href="queries.html" class="nav-link" style="color:var(--text);border-color:var(--accent)">Queries</a>
+  </nav>
+</header>
+<main>
+  <p class="intro">
+    Every hunt query in the platform, in one place — for detection engineers to pull from when
+    building detections. Filter by platform, ATT&amp;CK technique, actor, or hunt status. The
+    <strong>Ready to convert</strong> filter surfaces queries whose hunt has <em>not</em> yet been
+    turned into a detection rule — the backlog worth mining first.
+  </p>
+
+  <div class="kpi-grid" id="kpi-grid"></div>
+
+  <section>
+    <div class="filter-row">
+      <label>Platform:</label>
+      <select id="platform-filter" onchange="applyFilters()"><option value="">All platforms</option></select>
+      <label>Technique:</label>
+      <select id="tech-filter" onchange="applyFilters()"><option value="">All techniques</option></select>
+      <label>Actor:</label>
+      <select id="actor-filter" onchange="applyFilters()"><option value="">All actors</option></select>
+      <label>Status:</label>
+      <select id="status-filter" onchange="applyFilters()"><option value="">All statuses</option></select>
+      <input type="text" id="search" placeholder="Search query text or title…" oninput="applyFilters()">
+      <label class="check"><input type="checkbox" id="pullable-only" onchange="applyFilters()"> Ready to convert only</label>
+      <span id="count-label"></span>
+    </div>
+    <div class="cards" id="cards"></div>
+    <div id="empty"></div>
+  </section>
+</main>
+<script>
+var ALL = [];
+
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function platClass(key){
+  return 'plat-' + (['crowdstrike','secops','splunk','sentinel'].indexOf(key) >= 0 ? key : 'other');
+}
+
+function techChip(t){
+  var url = 'https://attack.mitre.org/techniques/' + t.replace('.', '/');
+  return '<a href="' + url + '" target="_blank" rel="noopener" class="chip tech">' + esc(t) + '</a>';
+}
+
+function renderCard(q){
+  var techniques = (q.techniques || []).map(techChip).join('');
+  var actors = (q.threat_actors || []).map(function(a){
+    return '<a href="actors.html" class="chip actor">' + esc(a) + '</a>';
+  }).join('');
+  var detBadge = q.converted_to_detection
+    ? '<span class="badge badge-det" title="' + esc(q.detection_detail || '') + '">&#10003; detection exists</span>'
+    : '<span class="badge badge-pull">ready to convert</span>';
+  var lang = q.language ? '<span class="lang-tag">' + esc(q.language) + '</span>' : '';
+  var note = q.note ? '<div class="qcard-note">' + esc(q.note) + '</div>' : '';
+  var metaTags = (techniques || actors)
+    ? '<div class="meta-tags">' + techniques + actors + '</div>' : '';
+
+  return '<div class="qcard">' +
+    '<div class="qcard-head">' +
+      '<div>' +
+        '<div class="qcard-title">' + esc(q.title) + '</div>' +
+        '<div class="qcard-sub">' +
+          '<span class="plat ' + platClass(q.platform_key) + '">' + esc(q.platform) + '</span>' + lang +
+          '<span>·</span>' +
+          '<a href="hunt.html?id=' + encodeURIComponent(q.hunt_id) + '">' + esc(q.hunt_id) + '</a>' +
+          '<span style="color:var(--text-muted)">' + esc(q.hunt_title) + '</span>' +
+          '<span>·</span><span>' + esc(q.hunt_status) + '</span>' +
+        '</div>' +
+      '</div>' +
+      detBadge +
+    '</div>' +
+    metaTags + note +
+    '<div class="qcode-wrap">' +
+      '<button class="copy-btn" onclick="copyQuery(this)">Copy</button>' +
+      '<pre class="qcode"><code>' + esc(q.query) + '</code></pre>' +
+    '</div>' +
+  '</div>';
+}
+
+function copyQuery(btn){
+  var code = btn.parentNode.querySelector('code').textContent;
+  navigator.clipboard.writeText(code).then(function(){
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+  }).catch(function(){
+    btn.textContent = 'Copy failed';
+    setTimeout(function(){ btn.textContent = 'Copy'; }, 1500);
+  });
+}
+
+function applyFilters(){
+  var plat = document.getElementById('platform-filter').value;
+  var tech = document.getElementById('tech-filter').value;
+  var actor = document.getElementById('actor-filter').value;
+  var status = document.getElementById('status-filter').value;
+  var pullable = document.getElementById('pullable-only').checked;
+  var q = document.getElementById('search').value.toLowerCase();
+
+  var filtered = ALL.filter(function(r){
+    return (!plat   || r.platform === plat) &&
+           (!tech   || (r.techniques || []).indexOf(tech) >= 0) &&
+           (!actor  || (r.threat_actors || []).indexOf(actor) >= 0) &&
+           (!status || r.hunt_status === status) &&
+           (!pullable || !r.converted_to_detection) &&
+           (!q || r.query.toLowerCase().indexOf(q) >= 0 ||
+                  (r.title || '').toLowerCase().indexOf(q) >= 0 ||
+                  (r.hunt_title || '').toLowerCase().indexOf(q) >= 0);
+  });
+
+  document.getElementById('cards').innerHTML = filtered.map(renderCard).join('');
+  document.getElementById('count-label').textContent = filtered.length + ' of ' + ALL.length + ' queries';
+  var empty = document.getElementById('empty');
+  if (!filtered.length){
+    empty.style.display = 'block';
+    empty.textContent = ALL.length ? 'No queries match the current filters.' : '';
+  } else {
+    empty.style.display = 'none';
+  }
+}
+
+function fillSelect(id, values){
+  var sel = document.getElementById(id);
+  values.forEach(function(v){
+    var o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+}
+
+function renderKpis(t){
+  document.getElementById('kpi-grid').innerHTML = [
+    {label:'Total queries',    val:t.queries||0,             sub:'across all hunts',      c:'var(--accent)'},
+    {label:'Ready to convert', val:t.pullable_queries||0,    sub:'no detection yet',      c:'var(--yellow)'},
+    {label:'Already detections',val:t.already_detections||0, sub:'hunt → rule done',      c:'var(--green)'},
+    {label:'Hunts w/ queries', val:t.hunts_with_queries||0,  sub:'contributing hunts',    c:'var(--purple)'},
+    {label:'Platforms',        val:t.platforms||0,           sub:'query languages',       c:'var(--orange)'},
+    {label:'Techniques',       val:t.techniques_covered||0,  sub:'ATT&CK covered',        c:'var(--accent)'},
+  ].map(function(k){
+    return '<div class="kpi" style="--kpi-color:'+k.c+'"><div class="kpi-label">'+k.label+
+      '</div><div class="kpi-value">'+k.val+'</div><div class="kpi-sub">'+k.sub+'</div></div>';
+  }).join('');
+}
+
+fetch('../exports/queries.json')
+  .then(function(r){ if(!r.ok) throw new Error('not found'); return r.json(); })
+  .then(function(data){
+    ALL = data.queries || [];
+    renderKpis(data.totals || {});
+    fillSelect('platform-filter', Object.keys(data.platform_distribution || {}).sort());
+    fillSelect('tech-filter', data.techniques || []);
+    fillSelect('actor-filter', data.actors || []);
+    fillSelect('status-filter', Object.keys(data.status_distribution || {}).sort());
+    applyFilters();
+  })
+  .catch(function(){
+    document.getElementById('empty').style.display = 'block';
+    document.getElementById('empty').innerHTML =
+      'Could not load <code>exports/queries.json</code>. Run <code>python3 -B scripts/export_queries.py</code> ' +
+      'or push a <code>*queries.md</code> file to trigger the export workflow.';
+  });
+</script>
+</body>
+</html>

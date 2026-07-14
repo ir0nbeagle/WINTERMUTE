@@ -1,0 +1,3 @@
+# Python bytecode (parsers run with -B; these are never needed in the repo)
+__pycache__/
+*.py[cod]

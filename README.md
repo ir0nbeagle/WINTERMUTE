@@ -28,6 +28,7 @@ Most threat hunting programs live in spreadsheets or proprietary tools. WINTERMU
 | Hunt Queue | [`/reports/queue.html`](https://ir0nbeagle.github.io/WINTERMUTE/reports/queue.html) | Intel reports, TTP gap, conversion funnel |
 | APT Tracker | [`/reports/actors.html`](https://ir0nbeagle.github.io/WINTERMUTE/reports/actors.html) | Sortable adversary roster + technique profiles |
 | IOC Export | [`/reports/iocs.html`](https://ir0nbeagle.github.io/WINTERMUTE/reports/iocs.html) | Filterable IOC viewer, STIX 2.1 / MISP / CSV downloads |
+| Detection Query Library | [`/reports/queries.html`](https://ir0nbeagle.github.io/WINTERMUTE/reports/queries.html) | Every hunt query in one place for detection engineers to pull from |
 
 ---
 
@@ -106,7 +107,8 @@ WINTERMUTE/
 │
 ├── scripts/
 │   ├── parse_metrics.py              # Reads LOCK.md + TIR files → metrics/summary.json
-│   └── export_iocs.py                # Reads TIR IOCs → STIX 2.1, MISP, CSV
+│   ├── export_iocs.py                # Reads TIR IOCs → STIX 2.1, MISP, CSV
+│   └── export_queries.py             # Reads hunt *queries.md → exports/queries.json
 │
 ├── metrics/
 │   └── summary.json                  # Auto-generated — do not edit by hand
@@ -164,6 +166,19 @@ python3 -B scripts/export_iocs.py
 ```
 
 Reads IOCs from all TIR YAML frontmatter and writes `exports/stix-bundle.json`, `exports/misp-export.json`, and `exports/iocs.csv`. Respects TLP — RED IOCs are excluded from the STIX bundle by default.
+
+### Export the detection query library
+
+```bash
+python3 -B scripts/export_queries.py
+```
+
+Collects every query from the hunt `*queries.md` files (each `## heading` + fenced code
+block) into `exports/queries.json`, enriched with each hunt's ATT&CK techniques, actors,
+and status. This feeds the [Detection Query Library](https://ir0nbeagle.github.io/WINTERMUTE/reports/queries.html)
+dashboard, where detection engineers filter by platform / technique / actor and pull queries
+to convert into detections. The **Ready to convert** filter surfaces queries whose hunt has
+not yet become a detection rule. Regenerates automatically on push via `export-queries.yml`.
 
 ---
 
@@ -293,6 +308,7 @@ The frontmatter is machine-readable — keep the field names exactly as shown. T
 |----------|---------|-------------|
 | `parse-metrics.yml` | Push to `hunts/**/LOCK.md` or `threat-intel/**/report.md` | Regenerates `metrics/summary.json`, commits back |
 | `export-iocs.yml` | Push to `threat-intel/**/report.md` | Regenerates STIX, MISP, CSV exports, commits back |
+| `export-queries.yml` | Push to `hunts/**/*queries.md` or `hunts/**/LOCK.md` | Regenerates `exports/queries.json` for the query library, commits back |
 | `validate-hunt.yml` | Pull request touching `hunts/` | Validates LOCK.md has required fields and METRICS section |
 | `weekly-report.yml` | Cron (Mondays 08:00 UTC) | Prints weekly metrics digest to Actions log |
 

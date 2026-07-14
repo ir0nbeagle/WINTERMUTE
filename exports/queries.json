@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-14T14:38:03.304655+00:00",
+  "totals": {
+    "queries": 0,
+    "hunts_with_queries": 0,
+    "platforms": 0,
+    "techniques_covered": 0,
+    "actors_covered": 0,
+    "already_detections": 0,
+    "pullable_queries": 0
+  },
+  "platform_distribution": {},
+  "status_distribution": {},
+  "techniques": [],
+  "actors": [],
+  "hunts_with_queries": [],
+  "queries": []
+}
